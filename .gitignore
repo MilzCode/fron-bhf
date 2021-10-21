@@ -32,7 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# testeos
-pages/test.tsx
-styles/test.scss
