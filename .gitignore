@@ -34,5 +34,5 @@ yarn-error.log*
 .vercel
 
 # testeos
-./pages/test.tsx
-./styles/test.scss
+pages/test.tsx
+styles/test.scss
