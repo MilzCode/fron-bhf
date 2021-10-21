@@ -1,14 +1,45 @@
 import React from "react";
+import { ReactChild } from "react-virtualized/node_modules/@types/react";
 
-const VentanaModal = ({ children }: any) => {
+/**
+ * Este componente es una ventana modal que tiene un boton de salir y puede ejecutar una
+ * función de salida.
+ * recibe:
+ * @param children: el contenido de la ventana modal
+ * @param exitFunction: la función que se ejecuta al salir
+ * **/
+
+interface VentanaModalProps {
+  children: any;
+  exitFunction?: any;
+}
+
+const VentanaModal = ({ children, exitFunction }: VentanaModalProps) => {
+  const [modal, setModal] = React.useState(true);
+  const handleClose = () => {
+    setModal(false);
+    if (exitFunction) {
+      exitFunction();
+    }
+    //volvemos a exitFunction null para que no se ejecute mas de una vez
+    exitFunction = null;
+  };
   return (
-    <div className="ventanaModal">
-      <div className="ventanaModal__container">{children}</div>
-      {/* exit */}
-      <div className="ventanaModal__salir">
-        <button className="ventanaModal__salirBtn">Salir</button>
-      </div>
-    </div>
+    <>
+      {modal && (
+        <div className="ventanaModal">
+          <div className="ventanaModal__container">
+            {children}
+            <button
+              className="ventanaModal__salirBtn NOSELECT"
+              onClick={handleClose}
+            >
+              Salir
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

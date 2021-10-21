@@ -1,3 +1,52 @@
 //Fuentes
 $fontFamily: "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif;
+//colores
+//Logo ucn usa white y Pantone_Black_C en modo blanco y negro
+//Pantone to HEX -> for 2138-C https://www.pantone.com/eu/es/color-finder/2138-C
+$Pantone_Cool_Gray_7_C: #97999b;
+$Pantone_Black_C: #2d2926;
+$Pantone_240_C: #c5299b;
+$Pantone_109_C: #ffd100;
+$Pantone_115_C: #fdda25;
+$Pantone_300_C: #005eb8;
+$Pantone_306_C: #00b5e2;
+$Pantone_356_C: #007a33;
+$Pantone_347_C: #009a44;
+$Pantone_485_C: #da291c;
+$Pantone_471_C: #b86125;
+$Pantone_540_C: #003057;
+$Pantone_649_C: #dbe2e9;
+$Pantone_652_C: #7d9cc0;
+$Pantone_732_C: #623412;
+$Pantone_804_C: #ffaa4d;
+$Pantone_1375_C: #ff9e1b;
+$Pantone_2138_C: #647692;
+$Pantone_2587_C: #8246af;
+$Pantone_2915_C: #62b5e5;
+$Pantone_4665_C: #cda788;
+$Pantone_7481_C: #00b74f;
+$Pantone_7524_C: #a45248;
+$Pantone_7545_C: #425563;
+$Pantone_7711_C: #0097a9;
+$Pantone_7655_C: #a15a95;
+
+//more colors
+$Black_Shadow: rgba(0, 0, 0, 0.15);
+$pink1: #ed7092;
+$green1: #69c0ad;
+$gris1: #e8ebee;
+$BlueLink1: #007bff;
+$BlueLink2: #0a56b3;
+
+//clases globales, son clases que se usan en mas de un sitio.
+//NOSELECT sirve para que un elemento no se pueda seleccionar (como si fuese un pseudo elemento)
+.NOSELECT {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
