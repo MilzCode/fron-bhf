@@ -1,6 +1,5 @@
 //Fuentes
-$fontFamily: "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-  "Droid Sans", "Helvetica Neue", sans-serif;
+$fontFamily: "Roboto", "Segoe UI", sans-serif;
 //colores
 //Logo ucn usa white y Pantone_Black_C en modo blanco y negro
 //Pantone to HEX -> for 2138-C https://www.pantone.com/eu/es/color-finder/2138-C
@@ -49,4 +48,11 @@ $BlueLink2: #0a56b3;
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.TITULO {
+  font-size: 5rem;
+  font-weight: bold;
+  color: $Pantone_540_C;
+  text-align: center;
 }

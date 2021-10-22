@@ -3,6 +3,7 @@ import React from 'react'
 const CrearSolicitud = () => {
     return (
         <div className="crearSolicitud">
+            <h1 className="TITULO">Crear Solicitud</h1>
             
         </div>
     )
