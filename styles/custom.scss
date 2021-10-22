@@ -1,6 +1,21 @@
 //pagina de testeos
 @import "./test.scss";
-//imports
+//variables
 @import "./variables.scss";
+
+/**imports**/
+
+//layout
 @import "./layout/SideNavBHF.scss";
+//other
 @import "./other/VentanaModal.scss";
+//general
+@import "./general/mis-datos.scss";
+//funcionario
+@import "./funcionario/crear-solicitud.scss";
+@import "./funcionario/mi-solicitud.scss";
+@import "./funcionario/mis-solicitudes.scss";
+//encargado
+@import "./encargado/detalles-solicitud.scss";
+@import "./encargado/historial-solicitudes.scss";
+@import "./encargado/nuevas-solicitudes.scss";

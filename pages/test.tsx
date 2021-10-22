@@ -9,10 +9,8 @@ const test = () => {
     <div className="test">
       asdasdsa
       <VentanaModal exitFunction={handleClick}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-        obcaecati libero similique odit doloremque? Architecto consequuntur
-        nesciunt unde aperiam aspernatur enim quisquam ad, deserunt corrupti
-        dignissimos, similique eius eveniet dicta.
+        El beneficiado ya se encuentra con una solicitud en curso, para mas
+        información comuníquese con departamentodepersonas@ucn.cl
       </VentanaModal>
     </div>
   );
