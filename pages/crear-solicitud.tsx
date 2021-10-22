@@ -1,12 +1,19 @@
-import React from 'react'
+import React from "react";
 //Funcionario
 const CrearSolicitud = () => {
-    return (
-        <div className="crearSolicitud">
-            <h1 className="TITULO">Crear Solicitud</h1>
-            
-        </div>
-    )
-}
+  const onSubmit = () => {
+    console.log("Crear solicitud");
+  };
+  return (
+    <div className="crearSolicitud">
+      <h1 className="TITULO">Crear Solicitud</h1>
+      <form className="crearSolicitud__formulario" onSubmit={onSubmit}>
 
-export default CrearSolicitud
+
+          
+      </form>
+    </div>
+  );
+};
+
+export default CrearSolicitud;
