@@ -38,8 +38,7 @@ const CrearSolicitud = () => {
           </button>
           <button
             type="reset"
-            className="BOTON"
-            style={{ backgroundColor: "red" }}
+            className="BOTON BACKGROUNDCOLORRED"
           >
             Cancelar
           </button>

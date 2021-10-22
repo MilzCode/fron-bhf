@@ -41,11 +41,7 @@ const MisDatos = () => {
           <button type="submit" className="BOTON">
             Enviar
           </button>
-          <button
-            type="reset"
-            className="BOTON"
-            style={{ backgroundColor: "red" }}
-          >
+          <button type="reset" className="BOTON BACKGROUNDCOLORRED">
             Cancelar
           </button>
         </div>
