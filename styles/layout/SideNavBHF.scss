@@ -19,4 +19,6 @@
 
 .sideNavBHFMain {
   margin-left: calc(#{$widthSideBar} + 10px);
+  margin-right: 10px;
+  max-width: calc(100vw - calc(#{$widthSideBar} + 10px));
 }
