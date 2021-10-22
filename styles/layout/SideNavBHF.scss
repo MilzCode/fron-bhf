@@ -1,3 +1,10 @@
-.sideNavBHF{
-    
+.sideNavBHF {
+  &__body {
+    width: 55px !important;
+    transition: width 0.5s !important;
+    &--expanded {
+      @extend .sideNavBHF__body;
+      width: 250px !important;
+    }
+  }
 }

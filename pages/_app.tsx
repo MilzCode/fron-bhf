@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import SideNavBHF from "../components/layout/SideNavBHF";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         />
       </Head>
-      <Component {...pageProps} />
+      <SideNavBHF>
+        <Component {...pageProps} />
+      </SideNavBHF>
     </>
   );
 }
