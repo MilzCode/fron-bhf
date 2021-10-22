@@ -1,0 +1,13 @@
+.volverBoton {
+  font-size: sizeResponsive(0.6);
+  text-align: center;
+  margin-top: 1.5em;
+  & > span {
+    cursor: pointer;
+    color: $BlueLink1;
+    text-decoration: underline;
+    &:hover {
+      color: $BlueLink2;
+    }
+  }
+}

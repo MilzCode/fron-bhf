@@ -9,6 +9,8 @@
 @import "./layout/SideNavBHF.scss";
 //other
 @import "./other/VentanaModal.scss";
+@import "./other/Volver.scss";
+
 //general
 @import "./general/mis-datos.scss";
 //funcionario
@@ -21,3 +23,6 @@
 @import "./encargado/nuevas-solicitudes.scss";
 //EXTERNOS
 @import "./EXTERNOS/rsuite-default.scss";
+
+//configs
+@import "./configs.scss";

@@ -1,4 +1,5 @@
 import React from "react";
+import Volver from "../components/other/Volver";
 //Funcionario
 const CrearSolicitud = () => {
   const onSubmit = () => {
@@ -44,6 +45,7 @@ const CrearSolicitud = () => {
           </button>
         </div>
       </form>
+      <Volver />
     </div>
   );
 };
