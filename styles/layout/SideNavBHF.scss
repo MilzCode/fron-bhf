@@ -1,10 +1,22 @@
 .sideNavBHF {
+  width: auto;
+  position: fixed;
+  z-index: 100;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
   &__body {
-    width: 55px !important;
+    width: $widthSideBar !important;
     transition: width 0.5s !important;
     &--expanded {
       @extend .sideNavBHF__body;
       width: 250px !important;
     }
   }
+}
+
+.sideNavBHFMain {
+  margin-left: calc(#{$widthSideBar} + 10px);
 }

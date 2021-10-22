@@ -31,7 +31,7 @@ const SideNavBHF = ({ children }: any) => {
           </Sidenav.Body>
         </Sidenav>
       </div>
-      <main style={{ marginLeft: "65px" }}>{children}</main>
+      <main  className="sideNavBHFMain">{children}</main>
     </>
   );
 };

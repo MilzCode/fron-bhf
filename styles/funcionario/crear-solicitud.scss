@@ -1,3 +1,20 @@
-.crearSolicitud{
-    
+.crearSolicitud {
+  &__formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__input {
+    width: 80% !important;
+  }
+  &__botones {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    & > button {
+      min-width: 10em;
+    }
+  }
 }

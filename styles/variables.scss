@@ -37,6 +37,18 @@ $green1: #69c0ad;
 $gris1: #e8ebee;
 $BlueLink1: #007bff;
 $BlueLink2: #0a56b3;
+$AzulClaroMDB: #bdcfdc;
+
+//tamaños
+//Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeResponsive()
+$BaseSizeResponsive: min(5rem, 7vw);
+$widthSideBar: 55px;
+
+//funciones
+//esta funcion devulve un valor basado en el tamño del tamaño Bass y recibe un factor de escala, por defecto es 1 (1:1)
+@function sizeResponsive($factor: 1) {
+  @return calc(#{$BaseSizeResponsive}* #{$factor});
+}
 
 //clases globales, son clases que se usan en mas de un sitio. LAS CLASES GLOBALES SE NOMBRAN EN MAYUSCULAS!
 //NOSELECT sirve para que un elemento no se pueda seleccionar (como si fuese un pseudo elemento)
@@ -51,8 +63,65 @@ $BlueLink2: #0a56b3;
 }
 
 .TITULO {
-  font-size: 5rem;
+  font-size: sizeResponsive();
   font-weight: bold;
   color: $Pantone_540_C;
   text-align: center;
+}
+.INPUT {
+  border-radius: 0.5rem !important;
+  border: 1px solid $AzulClaroMDB;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden !important;
+  &:focus {
+    outline: none;
+    border: 1px solid rgba($Pantone_300_C, 0.7);
+  }
+}
+.LABEL {
+  font-size: 1em;
+  display: block;
+  color: $Pantone_Black_C;
+}
+
+.LABELINPUT {
+  font-size: sizeResponsive(0.4);
+  & > label {
+    @extend .LABEL;
+  }
+  & > input {
+    @extend .INPUT;
+    display: block;
+    width: 100%;
+  }
+  & > textarea {
+    @extend .INPUT;
+    display: block;
+    width: 100%;
+    height: 200px;
+    resize: none;
+    overflow-y: scroll !important;
+  }
+}
+
+.BOTON {
+  font-size: sizeResponsive(0.42);
+  padding: 0.3em 2em;
+  border-radius: 1em;
+  box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: $Pantone_300_C;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($Pantone_300_C, 0.95);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
 }
