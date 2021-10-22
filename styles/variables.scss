@@ -125,3 +125,10 @@ $widthSideBar: 55px;
     transform: scale(0.95);
   }
 }
+
+.BOTONES {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

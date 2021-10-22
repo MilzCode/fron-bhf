@@ -31,7 +31,7 @@ const CrearSolicitud = () => {
           ></textarea>
         </div>
         {/* Botones */}
-        <div className="crearSolicitud__botones">
+        <div className="crearSolicitud__botones BOTONES">
           <button type="submit" className="BOTON">
             Enviar
           </button>

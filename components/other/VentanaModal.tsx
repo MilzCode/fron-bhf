@@ -31,7 +31,7 @@ const VentanaModal = ({ children, exitFunction }: VentanaModalProps) => {
           <div className="ventanaModal__container">
             {children}
             <button
-              className="ventanaModal__salirBtn NOSELECT"
+              className="BOTON NOSELECT"
               onClick={handleClose}
             >
               Salir
