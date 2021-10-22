@@ -13,25 +13,47 @@ const MiSolicitud = () => {
       <h1 className="TITULO">Detalles Solicitud: {router.query.solicitud}</h1>
       <h3 className="TITULO2">Datos del Beneficiado:</h3>
       <div className="TABLERESPONSIVE2">
-        <table className="table table-bordered">
-          <tbody>
-            <tr>
-              <td>Nombre: Mohandas Gandhi</td>
-            </tr>
-            <tr>
-              <td>Rut: 99.999.999-9</td>
-            </tr>
-            <tr>
-              <td>Fecha: 03/03/2022</td>
-            </tr>
-            <tr>
-              <td>Documentación: Descargar...</td>
-            </tr>
-            <tr>
-              <td>Des</td>
-            </tr>
-          </tbody>
-        </table>
+        <div>Nombre: Mohandas Gandhi</div>
+        <div>Rut: 99.999.999-9</div>
+        <div>Fecha: 03/03/2022</div>
+        <div>Estado: En revisión por (Cobranzas)</div>
+        <div>
+          Documentación: <a href="#">Descargar...</a>
+        </div>
+      </div>
+      <h3 className="TITULO2">Detalles adicionales:</h3>
+      <div className="TABLERESPONSIVE2">
+        <div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
+          asperiores ratione ut sint soluta quibusdam laudantium magni nobis.
+          Quibusdam labore molestias cupiditate eaque ipsum praesentium autem
+          voluptatibus voluptates corrupti voluptas! Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Amet asperiores ratione ut sint soluta
+          quibusdam laudantium magni nobis. Quibusdam labore molestias
+          cupiditate eaque ipsum praesentium autem voluptatibus voluptates
+          corrupti voluptas! Lorem ipsum, dolor sit amet consectetur adipisicing
+          elit. Amet asperiores ratione ut sint soluta quibusdam laudantium
+          magni nobis. Quibusdam labore molestias cupiditate eaque ipsum
+          praesentium autem voluptatibus voluptates corrupti voluptas! Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Amet asperiores
+          ratione ut sint soluta quibusdam laudantium magni nobis. Quibusdam
+          labore molestias cupiditate eaque ipsum praesentium autem voluptatibus
+          voluptates corrupti voluptas! Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Amet asperiores ratione ut sint soluta quibusdam
+          laudantium magni nobis. Quibusdam labore molestias cupiditate eaque
+          ipsum praesentium autem voluptatibus voluptates corrupti voluptas!
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
+          asperiores ratione ut sint soluta quibusdam laudantium magni nobis.
+          Quibusdam labore molestias cupiditate eaque ipsum praesentium autem
+          voluptatibus voluptates corrupti voluptas! Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Amet asperiores ratione ut sint soluta
+          quibusdam laudantium magni nobis. Quibusdam labore molestias
+          cupiditate eaque ipsum praesentium autem voluptatibus voluptates
+          corrupti voluptas! Lorem ipsum, dolor sit amet consectetur adipisicing
+          elit. Amet asperiores ratione ut sint soluta quibusdam laudantium
+          magni nobis. Quibusdam labore molestias cupiditate eaque ipsum
+          praesentium autem voluptatibus voluptates corrupti voluptas!
+        </div>
       </div>
       <Volver />
     </div>

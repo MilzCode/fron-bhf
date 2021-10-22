@@ -1,3 +1,7 @@
+/**
+ *remueve cualquier caracter espcial de una cadena.
+ * @param str: string que se desea limpiar de caracteres especiales.
+ */
 const removeSpecialCharacters = (str) => {
   str = str.toLowerCase();
   str = str.replace(/[áàâãäå]/g, "a");

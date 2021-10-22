@@ -16,7 +16,10 @@ var Fn = {
     return S ? S - 1 : "k";
   },
 };
-
+/**
+ * recibe un rut en cualquier formato (con puntos, sin puntos, con guion o sin guion y combinaciones) y lo valida.
+ * @param rut: cadena de texto con el rut a validar.
+ * **/
 const validarRut = (rut) => {
   let rutValido = false;
   if (rut.length > 0) {

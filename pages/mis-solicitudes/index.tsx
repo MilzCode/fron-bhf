@@ -31,13 +31,13 @@ const MisSolicitudes = () => {
               <td>
                 <button className="BUTTONSTYLENONE">
                   <Link passHref href="/mis-solicitudes/555">
-                    <i className="fas fa-eye colorPurple" />
+                    <i className="fas fa-eye COLORPURPLE" />
                   </Link>
                 </button>
               </td>
               <td>
                 <button className="BUTTONSTYLENONE">
-                  <i className="fas fa-trash colorRed"></i>
+                  <i className="fas fa-trash COLORRED"></i>
                 </button>
               </td>
             </tr>
@@ -50,7 +50,7 @@ const MisSolicitudes = () => {
               <td>
                 <button className="BUTTONSTYLENONE">
                   <Link passHref href="/mis-solicitudes/555">
-                    <i className="fas fa-eye colorPurple" />
+                    <i className="fas fa-eye COLORPURPLE" />
                   </Link>
                 </button>
               </td>
@@ -82,7 +82,7 @@ const MisSolicitudes = () => {
               <td>
                 <button className="BUTTONSTYLENONE">
                   <Link passHref href="/mis-solicitudes/555">
-                    <i className="fas fa-eye colorPurple" />
+                    <i className="fas fa-eye COLORPURPLE" />
                   </Link>
                 </button>
               </td>
@@ -96,7 +96,7 @@ const MisSolicitudes = () => {
               <td>
                 <button className="BUTTONSTYLENONE">
                   <Link passHref href="/mis-solicitudes/555">
-                    <i className="fas fa-eye colorPurple" />
+                    <i className="fas fa-eye COLORPURPLE" />
                   </Link>
                 </button>
               </td>

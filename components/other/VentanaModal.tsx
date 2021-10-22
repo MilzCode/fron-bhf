@@ -6,16 +6,35 @@ import { ReactChild } from "react-virtualized/node_modules/@types/react";
  * función de salida.
  * recibe:
  * @param children: el contenido de la ventana modal
+ * @param exitBotonText: el texto del boton de salir
  * @param exitFunction: la función que se ejecuta al salir
+ * @param aceptarBotonText: si quiere un segundo boton, y el texto que desee mostrar:
+ * @param aceptarFunction: la función que se ejecuta al aceptar
  * **/
 
 interface VentanaModalProps {
   children: any;
+  exitBotonText?: string;
   exitFunction?: any;
+  aceptarBotonText?: string | undefined;
+  aceptarFunction?: any;
 }
 
-const VentanaModal = ({ children, exitFunction }: VentanaModalProps) => {
+const VentanaModal = ({
+  children,
+  exitBotonText,
+  exitFunction,
+  aceptarBotonText,
+  aceptarFunction,
+}: VentanaModalProps) => {
   const [modal, setModal] = React.useState(true);
+  const handleAceptar = () => {
+    setModal(false);
+    if (aceptarFunction) {
+      aceptarFunction();
+    }
+    aceptarFunction = null;
+  };
   const handleClose = () => {
     setModal(false);
     if (exitFunction) {
@@ -30,12 +49,24 @@ const VentanaModal = ({ children, exitFunction }: VentanaModalProps) => {
         <div className="ventanaModal">
           <div className="ventanaModal__container">
             {children}
-            <button
-              className="BOTON NOSELECT"
-              onClick={handleClose}
-            >
-              Salir
-            </button>
+            {!aceptarBotonText && (
+              <button className="BOTON NOSELECT" onClick={handleClose}>
+                {exitBotonText ? exitBotonText : "Cerrar"}
+              </button>
+            )}
+            {aceptarBotonText && (
+              <div className="BOTONES">
+                <button className="BOTON NOSELECT" onClick={handleAceptar}>
+                  {aceptarBotonText}
+                </button>
+                <button
+                  className="BOTON NOSELECT BACKGROUNDCOLORRED"
+                  onClick={handleClose}
+                >
+                  {exitBotonText ? exitBotonText : "Cerrar"}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

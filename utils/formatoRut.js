@@ -1,8 +1,11 @@
-/* Esta funcion solo sirve para dar formato al rut de la forma que se trabajara en este proyecto
-ej:
-//125556667 or 12.555.666-7 to 12555666-7
+/* 
 */
 
+/**
+ * Esta funcion solo sirve para dar formato al rut de la forma que se trabajara en este proyecto
+ * ej: 125556667 or 12.555.666-7 to 12555666-7
+ * @param rut: cadena de texto con el rut a validar.
+ * **/
 const formatoRut = (rut) => {
   //removemos caracteres raros
   rut = rut.replace(/[^0-9kK]/g, "");

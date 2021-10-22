@@ -1,3 +1,18 @@
-.misDatos{
-    
-}
+.misDatos {
+    &__formulario {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__input {
+      width: 80% !important;
+    }
+    &__botones {
+      width: 80% !important;
+      & > button {
+        min-width: 10em;
+      }
+    }
+  }
+  
