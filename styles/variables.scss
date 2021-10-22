@@ -42,13 +42,15 @@ $GrisMDB: #e0e0e0;
 
 /**tamaños**/
 //Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeResponsive()
-$BaseSizeResponsive: min(5rem, 7vw);
+$baseSizeResponsive: min(5rem, 7vw);
 $widthSideBar: 55px;
+//marginMain es el espacio en los costados del contenido.
+$marginMain: 10px;
 
 /**funciones**/
 //esta funcion devulve un valor basado en el tamño del tamaño Base y recibe un factor de escala, por defecto es 1 (1:1)
 @function sizeResponsive($factor: 1) {
-  @return calc(#{$BaseSizeResponsive}* #{$factor});
+  @return calc(#{$baseSizeResponsive}* #{$factor});
 }
 
 /**clases globales, son clases que se usan en mas de un sitio. LAS CLASES GLOBALES SE NOMBRAN EN MAYUSCULAS!**/
