@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Volver from "../../components/other/Volver";
 
+/**
+ * Esta vista es la correspondiente a la página de detalle de una solicitud, desde el punto de vista de un Funcionario.
+ *
+ * **/
+
+
 const MiSolicitud = () => {
   const router = useRouter();
   useEffect(() => {

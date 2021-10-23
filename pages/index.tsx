@@ -10,6 +10,7 @@ const Home: NextPage = () => {
         <h4 className="mb-3">Bienvenido USUARIO</h4>
       </div>
       <>
+        <h2>FUNCIONARIO</h2>
         <div>
           <Link href="/crear-solicitud">Crear Solicitud</Link>
         </div>
@@ -18,6 +19,10 @@ const Home: NextPage = () => {
         </div>
         <div>
           <Link href="/mis-datos">Mis Datos</Link>
+        </div>
+        <h2>DIRECCION DE PERSONAS</h2>
+        <div>
+          <Link href="/nuevas-solicitudes">Revisar nuevas solicitudes</Link>
         </div>
       </>
     </>

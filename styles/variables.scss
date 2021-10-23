@@ -108,7 +108,7 @@ $marginMain: 10px;
     @extend .INPUT;
     display: block;
     width: 100%;
-    height: 200px;
+    height: 8em;
     resize: none;
     overflow-y: scroll !important;
   }
@@ -116,6 +116,16 @@ $marginMain: 10px;
     @extend .INPUT;
     display: block;
     width: 100%;
+  }
+}
+
+.FILTRO {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  & > div {
+    margin: 0 2em;
   }
 }
 
@@ -133,7 +143,7 @@ $marginMain: 10px;
   background-color: $Pantone_300_C;
   color: white;
   cursor: pointer;
-  min-width: 8em;
+  min-width: 9em;
   &:hover {
     opacity: 0.95;
   }
@@ -190,7 +200,7 @@ $marginMain: 10px;
   overflow: auto;
 
   & > div {
-    max-height: 15em;
+    max-height: 8em;
     overflow: auto;
     border: 1px solid $GrisMDB;
     border-left: 2px solid $GrisMDB;
