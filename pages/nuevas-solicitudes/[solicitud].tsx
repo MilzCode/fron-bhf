@@ -9,9 +9,16 @@ import VentanaModal from "../../components/other/VentanaModal";
  * **/
 
 const SolicitudEncargado = () => {
+  //si es un encargado DGE.
+  const DGE = true;
   const router = useRouter();
   const [comentarios, setComentarios] = useState("");
-  const [solicitud, setSolicitud] = useState(true);
+
+  //Tomaremos solicitud con 3 estados posibles:
+  // - Aceptada: true
+  // - Rechazada: false
+  // - Pendiente: Null
+  const [solicitud, setSolicitud] = useState<boolean | null>(true);
   const [enviada, setEnviada] = useState(false);
   useEffect(() => {
     console.log(router.query.solicitud);
@@ -34,9 +41,24 @@ const SolicitudEncargado = () => {
     setEnviada(true);
   };
 
+  const handlePendiente = () => {
+    setSolicitud(null);
+    if (comentarios === "") {
+      return;
+    }
+    setEnviada(true);
+  };
+
   const handleSubmit = () => {
+    //Si la solicitud se va a estado pendiente
+    if (solicitud == null) {
+      //si no tiene el rol de DGE no puede dejar en estado pendiente
+      if (!DGE) return;
+      console.log("Pendiente");
+      return;
+    }
     //Si la solicitud de se rechaza hacer lo siguiente:
-    if (!solicitud) {
+    if (solicitud == false) {
       console.log("rechazada");
       return;
     }
@@ -83,9 +105,14 @@ const SolicitudEncargado = () => {
         <div className="LABELINPUT">
           <label htmlFor="datosAdicionales">
             Añadir comentario&nbsp;
-            {!solicitud && !comentarios && (
+            {solicitud == false && !comentarios && (
               <span className="COLORRED">
                 (Campo Obligatorio para rechazar)
+              </span>
+            )}
+            {solicitud == null && !comentarios && (
+              <span className="COLORRED">
+                (Campo Obligatorio para estado pendiente)
               </span>
             )}
           </label>
@@ -99,9 +126,19 @@ const SolicitudEncargado = () => {
           ></textarea>
         </div>
         <div className="BOTONES">
-          <button type="submit" className="BOTON" onClick={handleAceptar}>
+          <button type="button" className="BOTON" onClick={handleAceptar}>
             Aceptar
           </button>
+          {DGE && (
+            <button
+              type="button"
+              className="BOTON BACKGROUNDCOLORPURPLE"
+              onClick={handlePendiente}
+            >
+              Pendiente
+            </button>
+          )}
+
           <button
             type="button"
             className="BOTON BACKGROUNDCOLORRED"
@@ -122,6 +159,8 @@ const SolicitudEncargado = () => {
             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
             {solicitud
               ? "¿Desea aceptar la solicitud?"
+              : solicitud === null && DGE
+              ? "¿Dejar Solicitud en estado Pendiente?"
               : "¿Desea Rechazar la solicitud?"}
             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           </VentanaModal>
