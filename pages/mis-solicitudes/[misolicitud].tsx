@@ -16,7 +16,7 @@ const MiSolicitud = () => {
 
   return (
     <div className="miSolicitud">
-      <h1 className="TITULO">Detalles Solicitud: {router.query.solicitud}</h1>
+      <h1 className="TITULO">Detalles Solicitud: {router.query.misolicitud}</h1>
       <h3 className="TITULO2">Datos del Beneficiado:</h3>
       <div className="TABLERESPONSIVE2">
         <div>Nombre: Mohandas Gandhi</div>
@@ -62,6 +62,7 @@ const MiSolicitud = () => {
         </div>
       </div>
       <Volver />
+      <br />
     </div>
   );
 };

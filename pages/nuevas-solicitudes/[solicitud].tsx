@@ -51,7 +51,7 @@ const SolicitudEncargado = () => {
         <div>Nombre: Mohandas Gandhi</div>
         <div>Rut: 99.999.999-9</div>
         <div>Fecha: 03/03/2022</div>
-        <div>Estado: En revisión por (Cobranzas)</div>
+        <div>Estado: En revisión por (Dirección de personas)</div>
         <div>
           Documentación: <a href="#">Descargar...</a>
         </div>
@@ -65,7 +65,7 @@ const SolicitudEncargado = () => {
         <div>Fono: 9 4444 3333</div>
       </div>
       <hr />
-      <h3 className="TITULO2">Detalles adicionales de (FUNCIONARIO):</h3>
+      <h3 className="TITULO2">Detalles adicionales de (Funcionario):</h3>
       <div className="TABLERESPONSIVE2">
         <div>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet

@@ -20,9 +20,18 @@ const Home: NextPage = () => {
         <div>
           <Link href="/mis-datos">Mis Datos</Link>
         </div>
+        <hr />
         <h2>DIRECCION DE PERSONAS</h2>
         <div>
           <Link href="/nuevas-solicitudes">Revisar nuevas solicitudes</Link>
+        </div>
+        <div>
+          <Link href="/historial-solicitudes">Historial de solicitudes</Link>
+        </div>
+        <hr />
+        <h2>Test</h2>
+        <div>
+          <Link href="/test">Test</Link>
         </div>
       </>
     </>

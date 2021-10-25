@@ -53,6 +53,9 @@ $marginMain: 10px;
   @return calc(#{$baseSizeResponsive}* #{$factor});
 }
 
+//Font size usados para size Responsive
+//1 , 0.55, 0.45 , 0.4
+
 /**clases globales, son clases que se usan en mas de un sitio. LAS CLASES GLOBALES SE NOMBRAN EN MAYUSCULAS!**/
 //NOSELECT sirve para que un elemento no se pueda seleccionar (como si fuese un pseudo elemento)
 .NOSELECT {
@@ -73,7 +76,7 @@ $marginMain: 10px;
   margin: 0.5em auto;
 }
 .TITULO2 {
-  font-size: sizeResponsive(0.7);
+  font-size: sizeResponsive(0.55);
   color: $Pantone_300_C;
   font-weight: normal;
 }
@@ -130,7 +133,7 @@ $marginMain: 10px;
 }
 
 .BOTON {
-  font-size: sizeResponsive(0.42);
+  font-size: sizeResponsive(0.4);
   padding: 0.3em 2em;
   border-radius: 1em;
   box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.1);
