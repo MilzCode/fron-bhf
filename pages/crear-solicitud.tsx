@@ -14,7 +14,7 @@ const CrearSolicitud = () => {
           <input id="nombre" type="text" name="nombre" placeholder="Nombre" />
         </div>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="rut">Rut del solicitante</label>
+          <label htmlFor="rut">Rut del solicitante:</label>
           <input id="rut" type="text" name="rut" placeholder="Rut" />
         </div>
         {/* archivo */}
