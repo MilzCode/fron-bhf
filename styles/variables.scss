@@ -47,7 +47,7 @@ $widthSideBar: 55px;
 //marginMain es el espacio en los costados del contenido.
 $marginMain: 10px;
 
-/**funciones**/
+
 //esta funcion devulve un valor basado en el tamño del tamaño Base y recibe un factor de escala, por defecto es 1 (1:1)
 @function sizeResponsive($factor: 1) {
   @return calc(#{$baseSizeResponsive}* #{$factor});
@@ -59,6 +59,9 @@ $fontSize1: sizeResponsive(1);
 $fontSize2: sizeResponsive(0.55);
 $fontSize3: sizeResponsive(0.45);
 $fontSize4: sizeResponsive(0.4);
+
+/**funciones**/
+//nada aun
 
 /**clases globales, son clases que se usan en mas de un sitio. LAS CLASES GLOBALES SE NOMBRAN EN MAYUSCULAS!**/
 //NOSELECT sirve para que un elemento no se pueda seleccionar (como si fuese un pseudo elemento)
