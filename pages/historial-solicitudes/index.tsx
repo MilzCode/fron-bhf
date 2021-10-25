@@ -6,7 +6,7 @@ import Volver from "../../components/other/Volver";
 const HistorialSolicitudes = () => {
   return (
     <div className="historialSolicitudes">
-      <h1 className="TITULO">Nuevas solicitudes</h1>
+      <h1 className="TITULO">Historial solicitudes</h1>
       <div className="FILTRO">
         <div className="LABELINPUT">
           <label htmlFor="search">Filtrar por nombre o rut</label>

@@ -47,7 +47,6 @@ $widthSideBar: 55px;
 //marginMain es el espacio en los costados del contenido.
 $marginMain: 10px;
 
-
 //esta funcion devulve un valor basado en el tamño del tamaño Base y recibe un factor de escala, por defecto es 1 (1:1)
 @function sizeResponsive($factor: 1) {
   @return calc(#{$baseSizeResponsive}* #{$factor});
