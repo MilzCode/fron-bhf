@@ -4,6 +4,8 @@ import Volver from "../../components/other/Volver";
 import VentanaModal from "../../components/other/VentanaModal";
 
 const SolicitudPendiente = () => {
+  //si es un encargado DGE.
+  const DGE = true;
   const router = useRouter();
   const [comentarios, setComentarios] = useState("");
   const [solicitud, setSolicitud] = useState(true);
@@ -111,56 +113,60 @@ const SolicitudPendiente = () => {
         </div>
       </div>
       <br />
-      <hr />
-      <div>
-        <div className="LABELINPUT">
-          {/* En este caso como seria el comentario final este comentario debiese ser añadido como DGE 2 o DGE Comentario Pendiente o Detalles adicionales DGE pendiente, algo asi */}
-          <label htmlFor="datosAdicionales">
-            Añadir comentario&nbsp;
-            {!solicitud && !comentarios && (
-              <span className="COLORRED">
-                (Campo Obligatorio para rechazar)
-              </span>
+      {DGE && (
+        <>
+          <hr />
+          <div>
+            <div className="LABELINPUT">
+              {/* En este caso como seria el comentario final este comentario debiese ser añadido como DGE 2 o DGE Comentario Pendiente o Detalles adicionales DGE pendiente, algo asi */}
+              <label htmlFor="datosAdicionales">
+                Añadir comentario&nbsp;
+                {!solicitud && !comentarios && (
+                  <span className="COLORRED">
+                    (Campo Obligatorio para rechazar)
+                  </span>
+                )}
+              </label>
+              <textarea
+                id="datosAdicionales"
+                name="datosAdicionales"
+                placeholder="Datos adicionales"
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+              ></textarea>
+            </div>
+            <div className="BOTONES">
+              <button type="submit" className="BOTON" onClick={handleAceptar}>
+                Aceptar
+              </button>
+              <button
+                type="button"
+                className="BOTON BACKGROUNDCOLORRED"
+                onClick={handleRechazar}
+              >
+                Rechazar
+              </button>
+            </div>
+            {enviada && (
+              <VentanaModal
+                exitBotonText="Cancelar"
+                aceptarBotonText="Confirmar"
+                exitFunction={() => {
+                  setEnviada(false);
+                }}
+                aceptarFunction={handleSubmit}
+              >
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                {solicitud
+                  ? "¿Desea aceptar la solicitud?"
+                  : "¿Desea Rechazar la solicitud?"}
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              </VentanaModal>
             )}
-          </label>
-          <textarea
-            id="datosAdicionales"
-            name="datosAdicionales"
-            placeholder="Datos adicionales"
-            onChange={(e) => {
-              handleChange(e);
-            }}
-          ></textarea>
-        </div>
-        <div className="BOTONES">
-          <button type="submit" className="BOTON" onClick={handleAceptar}>
-            Aceptar
-          </button>
-          <button
-            type="button"
-            className="BOTON BACKGROUNDCOLORRED"
-            onClick={handleRechazar}
-          >
-            Rechazar
-          </button>
-        </div>
-        {enviada && (
-          <VentanaModal
-            exitBotonText="Cancelar"
-            aceptarBotonText="Confirmar"
-            exitFunction={() => {
-              setEnviada(false);
-            }}
-            aceptarFunction={handleSubmit}
-          >
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-            {solicitud
-              ? "¿Desea aceptar la solicitud?"
-              : "¿Desea Rechazar la solicitud?"}
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-          </VentanaModal>
-        )}
-      </div>
+          </div>
+        </>
+      )}
 
       <Volver />
       <br />
