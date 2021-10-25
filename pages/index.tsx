@@ -28,6 +28,11 @@ const Home: NextPage = () => {
         <div>
           <Link href="/historial-solicitudes">Historial de solicitudes</Link>
         </div>
+        <div>
+          <Link href="/solicitudes-pendientes">
+            Solicitudes estado Pendiente
+          </Link>
+        </div>
         <hr />
         <h2>Test</h2>
         <div>
