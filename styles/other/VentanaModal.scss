@@ -19,24 +19,4 @@
     border-radius: 1em;
     position: relative;
   }
-  &__salirBtn {
-    font-size: 1em;
-    padding: 0.3em 2em;
-    border-radius: 1em;
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.1);
-    display: block;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    background-color: $Pantone_300_C;
-    color: white;
-    cursor: pointer;
-    &:hover {
-      background-color: rgba($Pantone_300_C, 0.95);
-    }
-    &:active {
-      transform: scale(0.95);
-    }
-  }
 }
