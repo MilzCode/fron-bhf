@@ -156,13 +156,11 @@ const SolicitudEncargado = () => {
             }}
             aceptarFunction={handleSubmit}
           >
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
             {solicitud
               ? "¿Desea aceptar la solicitud?"
               : solicitud === null && DGE
               ? "¿Dejar Solicitud en estado Pendiente?"
               : "¿Desea Rechazar la solicitud?"}
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           </VentanaModal>
         )}
       </div>
