@@ -62,7 +62,6 @@ const MiSolicitud = () => {
         </div>
       </div>
       <Volver />
-      <br />
     </div>
   );
 };

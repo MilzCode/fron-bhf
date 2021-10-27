@@ -168,7 +168,6 @@ const SolicitudEncargado = () => {
       </div>
 
       <Volver />
-      <br />
     </>
   );
 };

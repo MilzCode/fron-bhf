@@ -169,7 +169,6 @@ const SolicitudPendiente = () => {
       )}
 
       <Volver />
-      <br />
     </>
   );
 };

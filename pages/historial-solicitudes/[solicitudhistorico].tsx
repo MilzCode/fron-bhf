@@ -58,7 +58,6 @@ const SolicitudHistoricoEncargado = () => {
         </div>
       </div>
       <Volver />
-      <br />
     </>
   );
 };
