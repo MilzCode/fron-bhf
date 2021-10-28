@@ -11,9 +11,15 @@ import VentanaModal from "../../components/other/VentanaModal";
 const SolicitudEncargado = () => {
   //si es un encargado DGE.
   const DGE = true;
+  const DPE = false;
+  const Cobranza = false;
   const router = useRouter();
   const [comentarios, setComentarios] = useState("");
   const [planta, setPlanta] = useState("");
+  const [unidad, setUnidad] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [arancel, setArancel] = useState("");
+  const [estadoMatricula, setEstadoMatricula] = useState("");
 
   //Tomaremos solicitud con 3 estados posibles:
   // - Aceptada: true
@@ -51,17 +57,24 @@ const SolicitudEncargado = () => {
   };
   const handlePlanta = (e: any) => {
     let nuevaPlanta = e.target.value;
-    setSolicitud(nuevaPlanta);
+    setPlanta(nuevaPlanta);
   };
   const handleUnidad = (e: any) => {
     let nuevaUnidad = e.target.value;
-    setSolicitud(nuevaUnidad);
+    setUnidad(nuevaUnidad);
   };
   const handleCategoria = (e: any) => {
     let nuevaCategoria = e.target.value;
-    setSolicitud(nuevaCategoria);
+    setCategoria(nuevaCategoria);
+  }
+  const handleArancel = (e: any) => {
+    let nuevaArancel = e.target.value;
+    setArancel(nuevaArancel);
   };
-
+  const handleEstadoMatricula = (e: any) => {
+    let nuevaEstadoMatricula = e.target.value;
+    setEstadoMatricula(nuevaEstadoMatricula);
+  };
 
   const handleSubmit = () => {
     //Si la solicitud se va a estado pendiente
@@ -116,6 +129,56 @@ const SolicitudEncargado = () => {
       <br />
       <hr />
       <div>
+        {DPE && <>
+          <div className="LABELINPUT">
+            <label htmlFor="planta">
+              Planta de funcionario
+            </label>
+            <input onChange={handlePlanta} id="planta" name="planta" type="text" />
+          </div>
+          <div className="LABELINPUT">
+            <label htmlFor="unidad">
+              Unidad de funcionario
+            </label>
+            <input onChange={handleUnidad} id="unidad" name="unidad" type="text" />
+          </div>
+          <div className="LABELINPUT">
+            <label htmlFor="categoria">
+              Categoría de funcionario
+            </label>
+            <select onChange={handleCategoria} name="categoria" id="categoria">
+              <option value="">Seleccione una opción</option>
+              <option value="academico">Académico</option>
+              <option value="noAcademico">No académico</option>
+              <option value="exfuncionario">Exfuncionario</option>
+              <option value="excepcionEspecial">Excepción especial</option>
+            </select>
+          </div>
+          <div className="LABELINPUT">
+            <label htmlFor="estadoMatricula">Estado de matrícula:</label>
+            <select onChange={handleEstadoMatricula} name="estadoMatricula" id="estadoMatricula">
+              <option value="">Seleccione una opción</option>
+              <option value="matriculado">Matriculado</option>
+              <option value="noMatriculado">No matriculado</option>
+            </select>
+          </div>
+          <div className="LABELINPUT">
+            <label htmlFor="arancel">
+              Arancel a financiar
+            </label>
+            <select onChange={handleArancel} name="arancel" id="arancel">
+              <option value="">Seleccione una opción</option>
+              <option value="Básico">Básico</option>
+              <option value="Completo">Completo</option>
+            </select>
+          </div>
+        </>}
+        {DGE && <>
+          <div className="LABELINPUT">
+            <label htmlFor="estadoMatricula">Estado de matrícula:</label>
+            <input type="text" disabled value={estadoMatricula} />
+          </div>
+        </>}
         <div className="LABELINPUT">
           <label htmlFor="datosAdicionales">
             Añadir comentario&nbsp;
@@ -139,34 +202,11 @@ const SolicitudEncargado = () => {
             }}
           ></textarea>
         </div>
-        <div className="LABELINPUT">
-          <label htmlFor="planta">
-            Planta
-          </label>
-          <input onChange={handlePlanta} id="planta" name="planta" type="text" />
-        </div>
-        <div className="LABELINPUT">
-          <label htmlFor="unidad">
-            Unidad
-          </label>
-          <input onChange={handleUnidad} id="unidad" name="unidad" type="text" />
-        </div>
-        <div className="LABELINPUT">
-          <label htmlFor="categoria">
-            Categoría
-          </label>
-          <select onChange={handleCategoria} name="categoria" id="categoria">
-            <option value="">Seleccione una opción</option>
-            <option value="academico">Académico</option>
-            <option value="noAcademico">No académico</option>
-            <option value="exfuncionario">Exfuncionario</option>
-          </select>
-        </div>
         <div className="BOTONES">
           <button type="button" className="BOTON" onClick={handleAceptar}>
             Aceptar
           </button>
-          {DGE && (
+          {DGE && <>
             <button
               type="button"
               className="BOTON BACKGROUNDCOLORPURPLE"
@@ -174,7 +214,7 @@ const SolicitudEncargado = () => {
             >
               Pendiente
             </button>
-          )}
+          </>}
 
           <button
             type="button"

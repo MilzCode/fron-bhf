@@ -74,23 +74,27 @@ const CrearSolicitud = () => {
           <input onChange={handleCarrera} id="carrera" type="text" name="carrera" placeholder="Carrera" />
         </div>
 
-        <select onChange={handleTipoEstudiante}>
-          <option value="Estudiante Nuevo">Estudiante Nuevo</option>
-          <option value="Estudiante Antiguo">Estudiante Antiguo</option>
-        </select>
+        <div className="crearSolicitud__input LABELINPUT">
+          <label htmlFor="tipoEstudiante">Tipo de estudiante:</label>
+          <select onChange={handleTipoEstudiante}>
+            <option value="">Seleccione una opción</option>
+            <option value="Estudiante Nuevo">Estudiante Nuevo</option>
+            <option value="Estudiante Antiguo">Estudiante Antiguo</option>
+          </select>
+        </div>
 
         {/* archivo */}
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="asignacionFamiliar">Asignación familiar</label>
-          <input onChange={handleAsignacionFamiliar} id="asignacionFamiliar" type="file"/>
+          <input onChange={handleAsignacionFamiliar} id="asignacionFamiliar" type="file" />
         </div>
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="certificadoNacimiento">Certificado de nacimiento</label>
-          <input onChange={handleCertificadoNacimiento} id="certificadoNacimiento" type="file"/>
+          <input onChange={handleCertificadoNacimiento} id="certificadoNacimiento" type="file" />
         </div>
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="comprobantePago">Comprobante de pago</label>
-          <input onChange={handleComprobantePago} id="comprobantePago" type="file"/>
+          <input onChange={handleComprobantePago} id="comprobantePago" type="file" />
         </div>
         {/* datos adicionales text area */}
         <div className="crearSolicitud__input LABELINPUT">
