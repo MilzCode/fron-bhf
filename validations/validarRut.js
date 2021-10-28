@@ -19,6 +19,7 @@ var Fn = {
 /**
  * recibe un rut en cualquier formato (con puntos, sin puntos, con guion o sin guion y combinaciones) y lo valida.
  * @param rut: cadena de texto con el rut a validar.
+ * @returns {boolean}: true si el rut es valido, false si no lo es.
  * **/
 const validarRut = (rut) => {
   let rutValido = false;
