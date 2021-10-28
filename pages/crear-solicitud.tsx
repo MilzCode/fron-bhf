@@ -11,7 +11,9 @@ const CrearSolicitud = () => {
   const [rut, setRut] = useState('');
   const [carrera, setCarrera] = useState('');
   const [tipoEstudiante, setTipoEstudiante] = useState('');
-  const [documentacion, setDocumentacion] = useState('');
+  const [asignacionFamiliar, setAsignacionFamiliar] = useState('');
+  const [certificadoNacimiento, setCertificadoNacimiento] = useState('');
+  const [comprobantePago, setComprobantePago] = useState('');
   const [datosAdicionales, setDatosAdicionales] = useState('');
 
   const handleNombre = (e: any) => {
@@ -30,9 +32,17 @@ const CrearSolicitud = () => {
     const nuevoTipoEstudiante = e.target.value;
     setTipoEstudiante(nuevoTipoEstudiante);
   }
-  const handleDocumentacion = (e: any) => {
-    const nuevaDocumentacion = e.target.value;
-    setTipoEstudiante(nuevaDocumentacion);
+  const handleAsignacionFamiliar = (e: any) => {
+    const nuevaAsignacionFamiliar = e.target.value;
+    setAsignacionFamiliar(nuevaAsignacionFamiliar);
+  }
+  const handleCertificadoNacimiento = (e: any) => {
+    const nuevoCertificadoNacimiento = e.target.value;
+    setCertificadoNacimiento(nuevoCertificadoNacimiento);
+  }
+  const handleComprobantePago = (e: any) => {
+    const nuevoComprobantePago = e.target.value;
+    setComprobantePago(nuevoComprobantePago);
   }
   const handleDatosAdicionales = (e: any) => {
     const nuevoDatosAdicionales = e.target.value;
@@ -71,8 +81,16 @@ const CrearSolicitud = () => {
 
         {/* archivo */}
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="archivo">Documentación</label>
-          <input onChange={handleDocumentacion} id="archivo" type="file" name="archivo" />
+          <label htmlFor="asignacionFamiliar">Asignación familiar</label>
+          <input onChange={handleAsignacionFamiliar} id="asignacionFamiliar" type="file"/>
+        </div>
+        <div className="crearSolicitud__input LABELINPUT">
+          <label htmlFor="certificadoNacimiento">Certificado de nacimiento</label>
+          <input onChange={handleCertificadoNacimiento} id="certificadoNacimiento" type="file"/>
+        </div>
+        <div className="crearSolicitud__input LABELINPUT">
+          <label htmlFor="comprobantePago">Comprobante de pago</label>
+          <input onChange={handleComprobantePago} id="comprobantePago" type="file"/>
         </div>
         {/* datos adicionales text area */}
         <div className="crearSolicitud__input LABELINPUT">
