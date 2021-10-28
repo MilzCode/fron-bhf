@@ -157,11 +157,9 @@ const SolicitudPendiente = () => {
                 }}
                 aceptarFunction={handleSubmit}
               >
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                 {solicitud
                   ? "¿Desea aceptar la solicitud?"
                   : "¿Desea Rechazar la solicitud?"}
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
               </VentanaModal>
             )}
           </div>
@@ -169,7 +167,6 @@ const SolicitudPendiente = () => {
       )}
 
       <Volver />
-      <br />
     </>
   );
 };

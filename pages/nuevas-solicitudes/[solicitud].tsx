@@ -233,7 +233,6 @@ const SolicitudEncargado = () => {
             }}
             aceptarFunction={handleSubmit}
           >
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
             {solicitud
               ? "¿Desea aceptar la solicitud?"
               : solicitud === null && DGE
@@ -245,7 +244,6 @@ const SolicitudEncargado = () => {
       </div>
 
       <Volver />
-      <br />
     </>
   );
 };
