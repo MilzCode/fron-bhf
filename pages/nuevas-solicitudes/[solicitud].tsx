@@ -13,6 +13,7 @@ const SolicitudEncargado = () => {
   const DGE = true;
   const router = useRouter();
   const [comentarios, setComentarios] = useState("");
+  const [planta, setPlanta] = useState("");
 
   //Tomaremos solicitud con 3 estados posibles:
   // - Aceptada: true
@@ -48,6 +49,19 @@ const SolicitudEncargado = () => {
     }
     setEnviada(true);
   };
+  const handlePlanta = (e: any) => {
+    let nuevaPlanta = e.target.value;
+    setSolicitud(nuevaPlanta);
+  };
+  const handleUnidad = (e: any) => {
+    let nuevaUnidad = e.target.value;
+    setSolicitud(nuevaUnidad);
+  };
+  const handleCategoria = (e: any) => {
+    let nuevaCategoria = e.target.value;
+    setSolicitud(nuevaCategoria);
+  };
+
 
   const handleSubmit = () => {
     //Si la solicitud se va a estado pendiente
@@ -125,6 +139,29 @@ const SolicitudEncargado = () => {
             }}
           ></textarea>
         </div>
+        <div className="LABELINPUT">
+          <label htmlFor="planta">
+            Planta
+          </label>
+          <input onChange={handlePlanta} id="planta" name="planta" type="text" />
+        </div>
+        <div className="LABELINPUT">
+          <label htmlFor="unidad">
+            Unidad
+          </label>
+          <input onChange={handleUnidad} id="unidad" name="unidad" type="text" />
+        </div>
+        <div className="LABELINPUT">
+          <label htmlFor="categoria">
+            Categoría
+          </label>
+          <select onChange={handleCategoria} name="categoria" id="categoria">
+            <option value="">Seleccione una opción</option>
+            <option value="academico">Académico</option>
+            <option value="noAcademico">No académico</option>
+            <option value="exfuncionario">Exfuncionario</option>
+          </select>
+        </div>
         <div className="BOTONES">
           <button type="button" className="BOTON" onClick={handleAceptar}>
             Aceptar
@@ -160,8 +197,8 @@ const SolicitudEncargado = () => {
             {solicitud
               ? "¿Desea aceptar la solicitud?"
               : solicitud === null && DGE
-              ? "¿Dejar Solicitud en estado Pendiente?"
-              : "¿Desea Rechazar la solicitud?"}
+                ? "¿Dejar Solicitud en estado Pendiente?"
+                : "¿Desea Rechazar la solicitud?"}
             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           </VentanaModal>
         )}
