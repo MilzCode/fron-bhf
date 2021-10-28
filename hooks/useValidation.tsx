@@ -25,7 +25,13 @@ fn: Función que se ejecuta en el componente. por ej: crearCuenta().
 si errores = {} entonces no hay errores.
 
 */
-
+/**
+ *
+ * @param objetoDeValores: corresponde al state Inicial
+ * @param validar: corresponde al archivo de validacion normalmente llamado validarAlgo.js este archivo un objeto con los datos y retorna errores
+ * @param fn: corresponde a la funcion que se ejecuta al hacer submit si esta todo correcto
+ * @param objetoErrores?: corresponde al state inical de errores en caso de que se quiera que los errores posean un nombre distinto al state inicial.
+ * **/
 const useValidacion = (
   objetoDeValores: { [key: string]: any },
   validar: (datosEntrada: { [key: string]: any }) => { [key: string]: any },

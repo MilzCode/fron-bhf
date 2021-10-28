@@ -58,6 +58,7 @@ $fontSize1: sizeResponsive(1);
 $fontSize2: sizeResponsive(0.55);
 $fontSize3: sizeResponsive(0.45);
 $fontSize4: sizeResponsive(0.4);
+$fontSize5: sizeResponsive(0.3);
 
 /**funciones**/
 //nada aun
@@ -139,7 +140,7 @@ $fontSize4: sizeResponsive(0.4);
 }
 
 .BOTON {
-  font-size: $fontSize4;
+  font-size: $fontSize5;
   padding: 0.3em 2em;
   border-radius: 1em;
   box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.1);
@@ -187,10 +188,18 @@ $fontSize4: sizeResponsive(0.4);
 .BACKGROUNDCOLORPURPLE {
   background-color: $Pantone_2587_C;
 }
+.ERROR{
+  @extend .COLORRED;
+  font-size: $fontSize4;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
 
 //Este estilo funciona en conjunto con boostrap para tablas de mas de 1 columna, se espera que contenga table dentro.
 .TABLERESPONSIVE {
-  font-size: $fontSize3;
+  font-size: $fontSize4;
   text-align: center;
   max-width: 100% !important;
   overflow: auto;

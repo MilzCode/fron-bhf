@@ -1,4 +1,4 @@
-import formatoRut from "./formatoRut";
+import formatoRut from "../utils/formatoRut";
 var Fn = {
   // Valida el rut con su cadena completa "XXXXXXXX-X"
   validaRut: function (rutCompleto) {
