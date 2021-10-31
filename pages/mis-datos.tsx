@@ -20,6 +20,15 @@ const MisDatos = () => {
           />
         </div>
         <div className="misDatos__input LABELINPUT">
+          <label htmlFor="rut">Mi rut</label>
+          <input
+            id="rut"
+            type="text"
+            name="rut"
+            placeholder="11.111.111-1"
+          />
+        </div>
+        <div className="misDatos__input LABELINPUT">
           <label htmlFor="telefono">Mi número de teléfono</label>
           <input
             id="telefono"
