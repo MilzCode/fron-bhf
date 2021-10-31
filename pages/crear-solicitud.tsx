@@ -12,7 +12,7 @@ const stateInicialCrearSolicitud = {
   asignacionFamiliar: null,
   certificadoNacimiento: null,
   comprobantePago: null,
-  documentos: null,
+  documentos: "",
   datosAdicionales: "",
 };
 
