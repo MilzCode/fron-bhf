@@ -23,8 +23,8 @@ export default function validarLogin(datos) {
     errors.rut = "El rut del beneficiario es inválido";
   }
 
-  if (!datos.carreras) {
-    errors.carreras = "La carrera del beneficiario es requerida";
+  if (!datos.carrera) {
+    errors.carrera = "La carrera del beneficiario es requerida";
   }
 
   if (!datos.tipoEstudiante) {

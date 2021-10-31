@@ -122,9 +122,9 @@ const CrearSolicitud = () => {
             <option value="">Seleccione una opción</option>
             <option>2021</option>
           </select>
-          {errores.tipoEstudiante && (
+          {errores.año && (
             <>
-              <p className="ERROR">{errores.tipoEstudiante}</p>
+              <p className="ERROR">{errores.año}</p>
             </>
           )}
         </div>
@@ -209,9 +209,9 @@ const CrearSolicitud = () => {
               }
             }}
           />
-          {errores.comprobantePago && (
+          {errores.documentos && (
             <>
-              <p className="ERROR">{errores.comprobantePago}</p>
+              <p className="ERROR">{errores.documentos}</p>
             </>
           )}
         </div>
