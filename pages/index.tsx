@@ -23,6 +23,11 @@ const Home: NextPage = () => {
         <hr />
         <h2>DIRECCION DE PERSONAS</h2>
         <div>
+          <Link href="/crear-solicitud-dpe">
+            Crear solicitud por un tercero
+          </Link>
+        </div>
+        <div>
           <Link href="/nuevas-solicitudes">Revisar nuevas solicitudes</Link>
         </div>
         <div>
