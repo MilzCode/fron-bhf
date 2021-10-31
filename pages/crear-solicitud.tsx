@@ -9,6 +9,7 @@ const stateInicialCrearSolicitud = {
   rut: "",
   carrera: "",
   tipoEstudiante: "",
+  año: "",
   asignacionFamiliar: null,
   certificadoNacimiento: null,
   comprobantePago: null,
@@ -91,12 +92,13 @@ const CrearSolicitud = () => {
           <label htmlFor="tipoEstudiante">Tipo de estudiante:</label>
           <select
             id="tipoEstudiante"
+            name="tipoEstudiante"
             onChange={handleChange}
             onBlur={handleBlur}
           >
             <option value="">Seleccione una opción</option>
-            <option value="Estudiante Nuevo">Estudiante Nuevo</option>
-            <option value="Estudiante Antiguo">Estudiante Antiguo</option>
+            <option>Estudiante Nuevo</option>
+            <option>Estudiante Antiguo</option>
           </select>
           {errores.tipoEstudiante && (
             <>
@@ -105,7 +107,24 @@ const CrearSolicitud = () => {
           )}
         </div>
 
-        {/* archivo */}
+        <div className="crearSolicitud__input LABELINPUT">
+          <label htmlFor="año">Periodo:</label>
+          <select
+            id="año"
+            name="año"
+            onChange={handleChange}
+            onBlur={handleBlur}
+          >
+            <option value="">Seleccione una opción</option>
+            <option>2021</option>
+          </select>
+          {errores.tipoEstudiante && (
+            <>
+              <p className="ERROR">{errores.tipoEstudiante}</p>
+            </>
+          )}
+        </div>
+
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="asignacionFamiliar">Asignación familiar</label>
           <input
@@ -121,6 +140,7 @@ const CrearSolicitud = () => {
             </>
           )}
         </div>
+
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="certificadoNacimiento">
             Certificado de nacimiento
@@ -138,6 +158,7 @@ const CrearSolicitud = () => {
             </>
           )}
         </div>
+
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="comprobantePago">Comprobante de pago</label>
           <input

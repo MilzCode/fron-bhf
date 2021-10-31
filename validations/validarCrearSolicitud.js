@@ -1,6 +1,9 @@
 import validarRut from "./validarRut";
 export default function validarLogin(datos) {
   let errors = {};
+  //traer desde api
+
+  //
 
   if (!datos.nombre) {
     errors.nombre = "El nombre del beneficiario es requerido";
@@ -18,6 +21,18 @@ export default function validarLogin(datos) {
     errors.rut = "El rut del beneficiario es requerido";
   } else if (validarRut(datos.rut) === false) {
     errors.rut = "El rut del beneficiario es inválido";
+  }
+
+  if (!datos.carreras) {
+    errors.carreras = "La carrera del beneficiario es requerida";
+  }
+
+  if (!datos.tipoEstudiante) {
+    errors.tipoEstudiante = "El tipo de estudiante es requerido";
+  }
+
+  if (!datos.periodo) {
+    errors.periodo = "El tipo de estudiante es requerido";
   }
 
   if (!datos.asignacionFamiliar) {
