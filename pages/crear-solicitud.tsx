@@ -9,7 +9,7 @@ const stateInicialCrearSolicitud = {
   rut: "",
   carrera: "",
   tipoEstudiante: "",
-  año: "",
+  periodo: "",
   asignacionFamiliar: null,
   certificadoNacimiento: null,
   comprobantePago: null,
@@ -108,19 +108,19 @@ const CrearSolicitud = () => {
         </div>
 
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="año">Periodo:</label>
+          <label htmlFor="periodo">Periodo (año):</label>
           <select
-            id="año"
-            name="año"
+            id="periodo"
+            name="periodo"
             onChange={handleChange}
             onBlur={handleBlur}
           >
             <option value="">Seleccione una opción</option>
             <option>2021</option>
           </select>
-          {errores.año && (
+          {errores.periodo && (
             <>
-              <p className="ERROR">{errores.año}</p>
+              <p className="ERROR">{errores.periodo}</p>
             </>
           )}
         </div>
