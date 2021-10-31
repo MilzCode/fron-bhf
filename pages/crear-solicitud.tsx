@@ -12,6 +12,7 @@ const stateInicialCrearSolicitud = {
   asignacionFamiliar: null,
   certificadoNacimiento: null,
   comprobantePago: null,
+  documentos: null,
   datosAdicionales: "",
 };
 
@@ -34,7 +35,7 @@ const CrearSolicitud = () => {
       <h1 className="TITULO">Crear Solicitud</h1>
       <form className="crearSolicitud__formulario" onSubmit={handleSubmit}>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="nombre">Nombre del solicitante</label>
+          <label htmlFor="nombre">Nombre del estudiante</label>
           <input
             id="nombre"
             type="text"
@@ -51,7 +52,7 @@ const CrearSolicitud = () => {
         </div>
 
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="rut">Rut del solicitante:</label>
+          <label htmlFor="rut">Rut del estudiante</label>
           <input
             id="rut"
             type="text"
@@ -69,7 +70,7 @@ const CrearSolicitud = () => {
         </div>
 
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="carrera">Carrera del solicitante:</label>
+          <label htmlFor="carrera">Carrera del estudiante</label>
           <input
             id="carrera"
             type="text"
@@ -145,6 +146,43 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+          />
+          {errores.comprobantePago && (
+            <>
+              <p className="ERROR">{errores.comprobantePago}</p>
+            </>
+          )}
+        </div>
+        <div className="crearSolicitud__input LABELINPUT">
+          <label htmlFor="documentos">Otros documentos (Opcional)</label>
+          <input
+            id="documentos"
+            name="documentos"
+            type="file"
+            multiple
+            onChange={function (e) {
+              console.log(e.target.files);
+              //validación documentos
+              let documentos = e.target.files;
+              let valido = true;
+              if (documentos && documentos.length > 0) {
+                for (let i in documentos) {
+                  if (/(.jpg|.jpeg|.png|.pdf|.docx)$/i.test(documentos[i].name) === false) {
+                    valido = false;
+                  }
+                }
+              }
+              if(valido){
+                let changedE = e;
+                changedE.target.value = "valido";
+                handleChange(changedE);
+              }
+              else {
+                let changedE = e;
+                changedE.target.value = "no valido";
+                handleChange(changedE);
+              }
+            }}
           />
           {errores.comprobantePago && (
             <>
