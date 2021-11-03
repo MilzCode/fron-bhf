@@ -125,6 +125,7 @@ const CrearSolicitud = () => {
           )}
         </div>
 
+    
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="asignacionFamiliar">Asignación familiar</label>
           <input

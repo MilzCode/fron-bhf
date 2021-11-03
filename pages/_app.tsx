@@ -36,18 +36,19 @@ function MyApp({ Component, pageProps }: AppProps) {
           crossOrigin="anonymous"
         ></link>
       </Head>
-      <SideNavBHF>
-        {/* <Component {...pageProps} /> */}
-        <AuthProvider>
-          {router.route === "/" ? (
-            //en la ruta raiz va el login
+
+      {/* <Component {...pageProps} /> */}
+      <AuthProvider>
+
+        {router.route === "/" ? (
+          //en la ruta raiz va el login
+          <Component {...pageProps} />
+        ) : (
+          <SideNavBHF>
             <Component {...pageProps} />
-          ) : (
-            //incluir navbar (rutas protegidas por el login)
-            <Component {...pageProps} />
-          )}
-        </AuthProvider>
-      </SideNavBHF>
+          </SideNavBHF>
+        )}
+      </AuthProvider>
     </>
   );
 }

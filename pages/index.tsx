@@ -22,6 +22,9 @@ const STATE_INIT = {
   password: "",
 };
 
+
+
+
 const Home = () => {
   const { signIn, checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
@@ -30,8 +33,9 @@ const Home = () => {
 
   function startGoogle() {
     var auth2: any;
-    console.log(gapi);
+    // @ts-ignore
     gapi.load("auth2", function () {
+      // @ts-ignore
       auth2 = gapi.auth2.init({
         client_id:
           "920846582943-uh9c9joa2nqkmk6skvtg46553dcp6490.apps.googleusercontent.com",
@@ -73,6 +77,7 @@ const Home = () => {
   }
 
   useEffect(() => {
+    // @ts-ignore
     if (gapi) {
       startGoogle();
     } else {
@@ -182,18 +187,25 @@ const Home = () => {
                 />
                 <label htmlFor="username" className="fas fa-user" />
               </div>
+              
               <div className="login__input">
                 <input
                   id="password"
                   name="password"
                   type="password"
                   placeholder="********"
+                  autoComplete="on"
                   value={password}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 <label htmlFor="password" className="fas fa-key" />
               </div>
+              {//Input elements should have autocomplete attributes (suggested: "current-password")
+              //@ts-ignore
+
+              }
+
             </div>
             <button
               type="submit"
