@@ -2,8 +2,11 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import SideNavBHF from "../components/layout/SideNavBHF";
+import { useRouter } from "next/router";
+import { AuthProvider } from "../context/AuthConext";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -14,6 +17,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
+        {/* ESTO ES PARA INICIO CON GOOGLE */}
+        <meta
+          name="google-signin-client_id"
+          content="920846582943-uh9c9joa2nqkmk6skvtg46553dcp6490.apps.googleusercontent.com"
+        ></meta>
+        <script src="https://apis.google.com/js/platform.js" defer></script>
+        {/* FIN INICIO CON GOOGLE */}
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
@@ -27,7 +37,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         ></link>
       </Head>
       <SideNavBHF>
-        <Component {...pageProps} />
+        {/* <Component {...pageProps} /> */}
+        <AuthProvider>
+          {router.route === "/" ? (
+            //en la ruta raiz va el login
+            <Component {...pageProps} />
+          ) : (
+            //incluir navbar (rutas protegidas por el login)
+            <Component {...pageProps} />
+          )}
+        </AuthProvider>
       </SideNavBHF>
     </>
   );
