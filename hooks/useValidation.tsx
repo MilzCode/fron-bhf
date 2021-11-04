@@ -66,6 +66,21 @@ const useValidacion = (
     (pero es mas costoso validar cada vez que se interactua con el input)
   */
   const handleChange = (e: any, validacion = false) => {
+    if(e.target.type === "file"){
+      setValores({
+        ...valores,
+        [e.target.name]: e.target.files,
+      });
+      if (validacion) {
+        setErrores(
+          validar({
+            ...valores,
+            [e.target.name]: e.target.files,
+          })
+        );
+      }
+      return;
+    }
     setValores({
       ...valores,
       [e.target.name]: e.target.value,

@@ -3,8 +3,8 @@ import Volver from "../components/other/Volver";
 import { useEffect } from "react";
 import useValidacion from "../hooks/useValidation";
 import validarCrearSolicitud from "../validations/validarCrearSolicitud";
-import Axios from "axios";//agregue
-
+import { AuthContext } from "../context/AuthConext";
+import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
 
 
 
@@ -23,15 +23,46 @@ const stateInicialCrearSolicitud = {
 
 
 
+
 //Funcionario
 const CrearSolicitud = () => {
-  const enviarSolicitud = () => {
-    console.log("Enviar solicitud");
-    console.log(valores);
-  };
+  const {signIn} = React.useContext(AuthContext);
+  const enviarSolicitud = async () => {
+    const name_benef = valores.nombre;
+    const rut_benef = valores.rut;
+    const carrera_benef = valores.carrera;
+    const type_benef = valores.tipoEstudiante;
+    const documentacion : any = new Array();
+    documentacion.push(valores.asignacionFamiliar[0]);
+    documentacion.push(valores.certificadoNacimiento[0]);
+    documentacion.push(valores.comprobantePago[0]);
+    const anio = valores.periodo;
+    const user_id = signIn.id;
+    console.log("parametros")
+    console.log(name_benef);
+    console.log(rut_benef);
+    console.log(carrera_benef);
+    console.log(type_benef);
+    console.log(documentacion);
+    console.log(anio);
+    console.log(user_id);
+    console.log("fin parametros")
+    
+    // valores.documentos.forEach(documento => {
+    //   documentacion.push(documento);
+    // });
 
-  function validar() {
 
+    const enviar = await useEnviarSolicitudFuncionario(
+      name_benef,
+      rut_benef,
+      carrera_benef,
+      type_benef,
+      documentacion,
+      anio,
+      user_id
+    );
+    console.log(enviar)
   };
 
   const { valores, errores, handleSubmit, handleChange, handleBlur } =
@@ -40,7 +71,6 @@ const CrearSolicitud = () => {
       validarCrearSolicitud,
       enviarSolicitud
     );
-
 
 
   return (
@@ -146,7 +176,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
-            accept=" .jpg, .jpeg, .png, .pdf, .docx"
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.asignacionFamiliar && (
             <>
@@ -165,7 +195,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
-            accept=" .jpg, .jpeg, .png, .pdf, .docx"
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.certificadoNacimiento && (
             <>
@@ -182,7 +212,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
-            accept=" .jpg, .jpeg, .png, .pdf, .docx"
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.comprobantePago && (
             <>
@@ -196,28 +226,31 @@ const CrearSolicitud = () => {
             id="documento"
             name="documentos"
             type="file"
-            accept=" .jpg, .jpeg, .png, .pdf, .docx"
+            accept=" .jpg, .jpeg, .pdf, .docx"
             multiple
-            onChange={function (e) {
+            onChange={handleChange}
+            onBlur={handleBlur}
+            // onChange={function (e) {
   
-              //validación documentos
-              let documentos = e.target.files;
+            //   //validación documentos
+            //   let documentos = e.target.files;
+            //   console.log(documentos)
 
-              let valido = true;
+            //   let valido = true;
               
-              if (documentos && documentos.length > 0) {
-                for (var i = 0; i < documentos.length; i++) {
+            //   if (documentos && documentos.length > 0) {
+            //     for (var i = 0; i < documentos.length; i++) {
               
-                  if (/(.jpg|.jpeg|.png|.pdf|.docx)$/i.test(documentos[i].name) === false) {
-                    valido = false;
-                  }
-                }
-              }
-              if (!valido) {
-                errores.documentos = "Solo se permiten archivos con extensión .jpg, .jpeg, .png, .pdf, .docx";
-              }
-              handleChange(e);
-            }}
+            //       if (/(.jpg|.jpeg |.pdf|.docx)$/i.test(documentos[i].name) === false) {
+            //         valido = false;
+            //       }
+            //     }
+            //   }
+            //   if (!valido) {
+            //     errores.documentos = "Solo se permiten archivos con extensión .jpg, .jpeg , .pdf o .docx";
+            //   }
+            //   handleChange(e);
+            // }}
           />
           {errores.documentos && (
             <>

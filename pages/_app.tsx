@@ -4,6 +4,8 @@ import Head from "next/head";
 import SideNavBHF from "../components/layout/SideNavBHF";
 import { useRouter } from "next/router";
 import { AuthProvider } from "../context/AuthConext";
+// import "../styles/globals.less"; //importamos css globales y rsuite.
+import "../styles/login/login.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
