@@ -55,15 +55,6 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <hr />
-        <h2>Test</h2>
-        <div className="cards__test">
-          <div className="card">
-            <h5>Test</h5>
-            <Link href="/test"><a className="button__funcionalidades">IR</a></Link>
-          </div>
-        </div>
-
       </>
     </>
   );

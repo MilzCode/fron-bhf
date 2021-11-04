@@ -59,6 +59,14 @@ const CrearSolicitud = () => {
       anio,
       user_id
     );
+
+    // console.log(name_benef);
+    // console.log(rut_benef);
+    // console.log(carrera_benef);
+    // console.log(type_benef);
+    // console.log(documentacion);
+    // console.log(anio);
+    // console.log(user_id);
     if (enviar.mensaje === "Solicitud creada con exito"){
       setEnviado(true);
     }

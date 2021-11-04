@@ -36,6 +36,14 @@ const useEnviarSolicitudFuncionario = async (
     });
   form.append("anio", anio);
   form.append("user_id", user_id);
+  console.log(form.get("name_benef"));
+  console.log(form.get("rut_benef"));
+  console.log(form.get("carrera_benef"));
+  console.log(form.get("type_benef"));
+  console.log(form.getAll("documentacion[]"));
+  console.log(form.get("anio"));
+  console.log(form.get("user_id"));
+
 
   try {
     const res = await fetch(url, {
