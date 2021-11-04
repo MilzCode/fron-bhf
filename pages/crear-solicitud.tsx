@@ -146,6 +146,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .png, .pdf, .docx"
           />
           {errores.asignacionFamiliar && (
             <>
@@ -164,6 +165,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .png, .pdf, .docx"
           />
           {errores.certificadoNacimiento && (
             <>
@@ -180,6 +182,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .png, .pdf, .docx"
           />
           {errores.comprobantePago && (
             <>
@@ -193,6 +196,7 @@ const CrearSolicitud = () => {
             id="documento"
             name="documentos"
             type="file"
+            accept=" .jpg, .jpeg, .png, .pdf, .docx"
             multiple
             onChange={function (e) {
   
