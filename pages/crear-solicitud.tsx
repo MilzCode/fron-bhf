@@ -5,8 +5,7 @@ import useValidacion from "../hooks/useValidation";
 import validarCrearSolicitud from "../validations/validarCrearSolicitud";
 import { AuthContext } from "../context/AuthConext";
 import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
-
-
+import { useRouter } from "next/router";
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -21,38 +20,36 @@ const stateInicialCrearSolicitud = {
   datosAdicionales: "",
 };
 
-
-
-
 //Funcionario
 const CrearSolicitud = () => {
-  const {signIn} = React.useContext(AuthContext);
+  const router = useRouter();
+  const { authState } = React.useContext(AuthContext);
+  const [enviado, setEnviado] = useState(false);
+  //esta wea no se tiene que enviar 2 veces
   const enviarSolicitud = async () => {
+    if(enviado) return;
     const name_benef = valores.nombre;
     const rut_benef = valores.rut;
     const carrera_benef = valores.carrera;
     const type_benef = valores.tipoEstudiante;
-    const documentacion : any = new Array();
+    const documentacion: any = new Array();
     documentacion.push(valores.asignacionFamiliar[0]);
     documentacion.push(valores.certificadoNacimiento[0]);
     documentacion.push(valores.comprobantePago[0]);
+    for (let index = 0; index < valores.documentos.length; index++) {
+      documentacion.push(valores.documentos[index]);
+    }
+
     const anio = valores.periodo;
-    const user_id = signIn.id;
-    console.log("parametros")
-    console.log(name_benef);
-    console.log(rut_benef);
-    console.log(carrera_benef);
-    console.log(type_benef);
-    console.log(documentacion);
-    console.log(anio);
-    console.log(user_id);
-    console.log("fin parametros")
-    
-    // valores.documentos.forEach(documento => {
-    //   documentacion.push(documento);
-    // });
+    const user_id = authState.id;
+    //solucionar podria enviarse al login
+    if(!user_id){
+      console.log("No hay ID");
+      return;
+    }
 
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const enviar = await useEnviarSolicitudFuncionario(
       name_benef,
       rut_benef,
@@ -62,7 +59,9 @@ const CrearSolicitud = () => {
       anio,
       user_id
     );
-    console.log(enviar)
+    if (enviar.mensaje === "Solicitud creada con exito"){
+      setEnviado(true);
+    }
   };
 
   const { valores, errores, handleSubmit, handleChange, handleBlur } =
@@ -72,6 +71,11 @@ const CrearSolicitud = () => {
       enviarSolicitud
     );
 
+    useEffect(() => {
+      if(enviado){
+        router.push("/");
+      }
+    }, [enviado]);
 
   return (
     <div className="crearSolicitud">
@@ -139,8 +143,8 @@ const CrearSolicitud = () => {
             onBlur={handleBlur}
           >
             <option value="">Seleccione una opción</option>
-            <option>Estudiante Nuevo</option>
-            <option>Estudiante Antiguo</option>
+            <option value="nuevo">Estudiante Nuevo</option>
+            <option value="antiguo">Estudiante Antiguo</option>
           </select>
           {errores.tipoEstudiante && (
             <>
@@ -166,7 +170,6 @@ const CrearSolicitud = () => {
             </>
           )}
         </div>
-
 
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="asignacionFamiliar">Asignación familiar</label>
@@ -231,16 +234,16 @@ const CrearSolicitud = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             // onChange={function (e) {
-  
+
             //   //validación documentos
             //   let documentos = e.target.files;
             //   console.log(documentos)
 
             //   let valido = true;
-              
+
             //   if (documentos && documentos.length > 0) {
             //     for (var i = 0; i < documentos.length; i++) {
-              
+
             //       if (/(.jpg|.jpeg |.pdf|.docx)$/i.test(documentos[i].name) === false) {
             //         valido = false;
             //       }

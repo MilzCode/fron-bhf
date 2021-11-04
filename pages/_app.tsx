@@ -8,7 +8,12 @@ import { AuthProvider } from "../context/AuthConext";
 import "../styles/login/login.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+
+  
   const router = useRouter();
+
+
   return (
     <>
       <Head>
