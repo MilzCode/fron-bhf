@@ -3,6 +3,10 @@ import Volver from "../components/other/Volver";
 import { useEffect } from "react";
 import useValidacion from "../hooks/useValidation";
 import validarCrearSolicitud from "../validations/validarCrearSolicitud";
+import Axios from "axios";//agregue
+
+
+
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -17,11 +21,17 @@ const stateInicialCrearSolicitud = {
   datosAdicionales: "",
 };
 
+
+
 //Funcionario
 const CrearSolicitud = () => {
   const enviarSolicitud = () => {
     console.log("Enviar solicitud");
     console.log(valores);
+  };
+
+  function validar() {
+
   };
 
   const { valores, errores, handleSubmit, handleChange, handleBlur } =
@@ -30,6 +40,8 @@ const CrearSolicitud = () => {
       validarCrearSolicitud,
       enviarSolicitud
     );
+
+
 
   return (
     <div className="crearSolicitud">
@@ -125,7 +137,7 @@ const CrearSolicitud = () => {
           )}
         </div>
 
-    
+
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="asignacionFamiliar">Asignación familiar</label>
           <input
@@ -176,34 +188,31 @@ const CrearSolicitud = () => {
           )}
         </div>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="documentos">Otros documentos (Opcional)</label>
+          <label htmlFor="aux">Otros documentos (opcional)</label>
           <input
-            id="documentos"
+            id="documento"
             name="documentos"
             type="file"
             multiple
             onChange={function (e) {
-              console.log(e.target.files);
+  
               //validación documentos
               let documentos = e.target.files;
+
               let valido = true;
+              
               if (documentos && documentos.length > 0) {
-                for (let i in documentos) {
+                for (var i = 0; i < documentos.length; i++) {
+              
                   if (/(.jpg|.jpeg|.png|.pdf|.docx)$/i.test(documentos[i].name) === false) {
                     valido = false;
                   }
                 }
               }
-              if(valido){
-                let changedE = e;
-                changedE.target.value = "valido";
-                handleChange(changedE);
+              if (!valido) {
+                errores.documentos = "Solo se permiten archivos con extensión .jpg, .jpeg, .png, .pdf, .docx";
               }
-              else {
-                let changedE = e;
-                changedE.target.value = "no valido";
-                handleChange(changedE);
-              }
+              handleChange(e);
             }}
           />
           {errores.documentos && (
