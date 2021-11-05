@@ -39,9 +39,9 @@ const CrearSolicitudDpe = ({ rol }: any) => {
   }, [enviado]);
 
   const enviarSolicitud = async () => {
-    if (clickEnviar) return;
+    // if (clickEnviar) return;
     if (enviado) return;
-    setClickEnviar(true);
+    // setClickEnviar(true);
     const name_benef = valores.nombre;
     const rut_benef = formatoRut(valores.rut);
     const carrera_benef = valores.carrera;

@@ -28,9 +28,9 @@ const CrearSolicitud = ({ id }: any) => {
   const [clickEnviar, setClickEnviar] = useState(false);
   //esta wea no se tiene que enviar 2 veces
   const enviarSolicitud = async () => {
-    if (clickEnviar) return;
+    // if (clickEnviar) return;
     if (enviado) return;
-    setClickEnviar(true);
+    // setClickEnviar(true);
 
     const name_benef = valores.nombre;
     const rut_benef = formatoRut(valores.rut);
@@ -51,6 +51,15 @@ const CrearSolicitud = ({ id }: any) => {
       console.log("No hay ID");
       return;
     }
+
+    console.log(name_benef);
+    console.log(rut_benef);
+    console.log(carrera_benef);
+    console.log(type_benef);
+    console.log(documentacion);
+    console.log(anio);
+    console.log(comentario_funcionario);
+    console.log(user_id);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
 
