@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import CerrarSesion from "../components/other/CerrarSesion";
 
 const Home: NextPage = () => {
   const rol = "funcionario";
@@ -55,6 +56,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
+        <CerrarSesion />
       </>
     </>
   );

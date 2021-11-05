@@ -186,8 +186,16 @@ $fontSize5: sizeResponsive(0.3);
 .BACKGROUNDCOLORRED {
   background-color: $Pantone_485_C;
 }
+
+
 .BACKGROUNDCOLORPURPLE {
   background-color: $Pantone_2587_C;
+}
+
+.button__logout{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,.5);
 }
 .ERROR{
   @extend .COLORRED;
