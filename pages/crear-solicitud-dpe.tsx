@@ -25,9 +25,10 @@ const CrearSolicitudDpe = ({ rol }: any) => {
   const router = useRouter();
   //validamos la vista sea correcta (especie de middleware)
   if(rol !== "dpe") {
-    router.push("/");
+    router.push("/panel");
     return null;
   }
+
   const [enviado, setEnviado] = useState(false);
 
   useEffect(() => {
