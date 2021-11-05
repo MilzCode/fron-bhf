@@ -1,18 +1,35 @@
+import { useState, useEffect } from "react";
+import { Loader } from "rsuite";
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import SideNavBHF from "../components/layout/SideNavBHF";
 import { useRouter } from "next/router";
 import { AuthProvider } from "../context/AuthConext";
-// import "../styles/globals.less"; //importamos css globales y rsuite.
 import "../styles/login/login.scss";
 
+import useCheckLogin from "../hooks/useCheckLogin";
+import Layout from "../components/layout/Layout";
+
 function MyApp({ Component, pageProps }: AppProps) {
-
-
-  
+  //show muestra el contenido de la pagina
+  const [show, setShow] = useState(false);
   const router = useRouter();
+  const checkLogin = async () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const data = await useCheckLogin();
+    //si no esta logueado redirige a logear
+    if (!data.email) {
+      setShow(false);
+      router.push("/");
+      return;
+    }
+    setShow(true);
+    return data;
+  };
 
+  useEffect(() => {
+    checkLogin();
+  }, [router.route]);
 
   return (
     <>
@@ -45,15 +62,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       {/* <Component {...pageProps} /> */}
-      <AuthProvider>
 
+      <AuthProvider>
         {router.route === "/" ? (
           //en la ruta raiz va el login
           <Component {...pageProps} />
         ) : (
-          <SideNavBHF>
-            <Component {...pageProps} />
-          </SideNavBHF>
+          <>
+            {show && (
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            )}
+            {!show && <Loader backdrop content="Cargando..." vertical />}
+          </>
         )}
       </AuthProvider>
     </>

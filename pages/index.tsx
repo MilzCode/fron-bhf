@@ -1,9 +1,5 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-
 import React, { useContext, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { Button, Loader } from "rsuite";
+import { Loader } from "rsuite";
 import Image from "next/image";
 import logoUCN from "../public/Escudo-UCN-Full-Color.png";
 
@@ -58,13 +54,11 @@ const Home = () => {
       async function ingreso() {
         const loginGoogle = await ingresoGoogle(token);
         if (loginGoogle === "error conexion") {
-          notifyError();
           setIsLoged(false);
         } else if (loginGoogle.access_token) {
           checkLogin(loginGoogle.rol);
           router.push("/panel");
         } else {
-          notifyIncorrect();
           setIsLoged(false);
         }
       }
@@ -72,7 +66,7 @@ const Home = () => {
     }
 
     function onFailure(error: any) {
-      notifyErrorGoogle();
+      // 
     }
   }
 
@@ -89,7 +83,6 @@ const Home = () => {
     async function verificar() {
       const verificacion = await Checklogin();
       if (verificacion === "error conexion") {
-        notifyError();
         setIsLoged(false);
       } else if (verificacion.rol) {
         checkLogin(verificacion.rol);
@@ -101,7 +94,6 @@ const Home = () => {
           setFirstTime(false);
         } else {
           setIsLoged(false);
-          notifyIncorrect();
         }
       }
     }
@@ -113,10 +105,8 @@ const Home = () => {
     const peticion = await ingresarSistema(email, password, true);
     console.log(peticion);
     if (peticion.error === "Credenciales incorrectas") {
-      notifyIncorrect();
       setIsLoged(false);
     } else if (peticion.errors) {
-      notifyIncorrect();
       setIsLoged(false);
     }
 
@@ -135,18 +125,8 @@ const Home = () => {
   function checkErrors() {
     console.log(errores);
     if (Object.keys(errores).length > 0) {
-      notifyErrorForm();
     }
   }
-
-  const notifyIncorrect = () =>
-    toast.error("Usuario o contraseña incorrecto...");
-  const notifyError = () =>
-    toast.error("Error al conectar a la base de datos...");
-  const notifyErrorGoogle = () =>
-    toast.error("Error en la conexion con google...");
-  const notifyErrorForm = () => toast.error("debe ingresar un correo valido");
-
   return (
     <>
       <div className="login">
@@ -231,7 +211,6 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <ToastContainer />
       </div>
       {isLoged ? <Loader backdrop content="Cargando..." vertical /> : null}
     </>

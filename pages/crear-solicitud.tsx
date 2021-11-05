@@ -6,6 +6,7 @@ import validarCrearSolicitud from "../validations/validarCrearSolicitud";
 import { AuthContext } from "../context/AuthConext";
 import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
 import { useRouter } from "next/router";
+import formatoRut from "../utils/formatoRut";
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -27,9 +28,10 @@ const CrearSolicitud = () => {
   const [enviado, setEnviado] = useState(false);
   //esta wea no se tiene que enviar 2 veces
   const enviarSolicitud = async () => {
-    if(enviado) return;
+    if (enviado) return;
+
     const name_benef = valores.nombre;
-    const rut_benef = valores.rut;
+    const rut_benef = formatoRut(valores.rut);
     const carrera_benef = valores.carrera;
     const type_benef = valores.tipoEstudiante;
     const documentacion: any = new Array();
@@ -43,11 +45,10 @@ const CrearSolicitud = () => {
     const anio = valores.periodo;
     const user_id = authState.id;
     //solucionar podria enviarse al login
-    if(!user_id){
+    if (!user_id) {
       console.log("No hay ID");
       return;
     }
-
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const enviar = await useEnviarSolicitudFuncionario(
@@ -60,14 +61,7 @@ const CrearSolicitud = () => {
       user_id
     );
 
-    // console.log(name_benef);
-    // console.log(rut_benef);
-    // console.log(carrera_benef);
-    // console.log(type_benef);
-    // console.log(documentacion);
-    // console.log(anio);
-    // console.log(user_id);
-    if (enviar.mensaje === "Solicitud creada con exito"){
+    if (enviar.mensaje === "Solicitud creada con exito") {
       setEnviado(true);
     }
   };
@@ -79,11 +73,11 @@ const CrearSolicitud = () => {
       enviarSolicitud
     );
 
-    useEffect(() => {
-      if(enviado){
-        router.push("/");
-      }
-    }, [enviado]);
+  useEffect(() => {
+    if (enviado) {
+      router.push("/");
+    }
+  }, [enviado]);
 
   return (
     <div className="crearSolicitud">

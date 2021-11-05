@@ -43,7 +43,8 @@ $GrisMDB: #e0e0e0;
 /**tamaños**/
 //Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeResponsive()
 $baseSizeResponsive: min(5rem, 7vw);
-$widthSideBar: 55px;
+//ancho del sidebar (sidebar actualmente desactivado)
+$widthSideBar: 0px;
 //marginMain es el espacio en los costados del contenido.
 $marginMain: 10px;
 

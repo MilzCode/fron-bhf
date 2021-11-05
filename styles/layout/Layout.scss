@@ -1,0 +1,9 @@
+.layout {
+  &__main {
+    margin-left: calc(#{$widthSideBar} + #{$marginMain});
+    margin-right: $marginMain;
+    max-width: calc(
+      100vw - calc(#{$widthSideBar} + #{$marginMain} + #{$marginMain})
+    );
+  }
+}

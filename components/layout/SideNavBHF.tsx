@@ -2,7 +2,7 @@ import React from "react";
 import { Toggle, Sidenav, Nav } from "rsuite";
 import Link from "next/link";
 
-const SideNavBHF = ({ children }: any) => {
+const SideNavBHF = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [activeKey, setActiveKey] = React.useState("1");
 
@@ -31,7 +31,6 @@ const SideNavBHF = ({ children }: any) => {
           </Sidenav.Body>
         </Sidenav>
       </div>
-      <main  className="sideNavBHFMain">{children}</main>
     </>
   );
 };
