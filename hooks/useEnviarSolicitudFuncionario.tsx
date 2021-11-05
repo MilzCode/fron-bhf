@@ -17,7 +17,8 @@ const useEnviarSolicitudFuncionario = async (
   type_benef: string,
   documentacion: any,
   anio: string,
-  user_id: string
+  user_id: string,
+  comentario_funcionario?: string
 ) => {
 
 
@@ -35,6 +36,7 @@ const useEnviarSolicitudFuncionario = async (
       form.append("documentacion[]", file);
     });
   form.append("anio", anio);
+  comentario_funcionario && form.append("comentario_funcionario", comentario_funcionario);
   form.append("user_id", user_id);
   console.log(form.get("name_benef"));
   console.log(form.get("rut_benef"));

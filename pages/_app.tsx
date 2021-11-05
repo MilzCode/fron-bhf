@@ -13,6 +13,7 @@ import Layout from "../components/layout/Layout";
 function MyApp({ Component, pageProps }: AppProps) {
   //show muestra el contenido de la pagina
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState({}) as any;
   const router = useRouter();
   const checkLogin = async () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       return;
     }
     setShow(true);
+    setUser({ rol: data.rol, id: data.id });
     return data;
   };
 
@@ -71,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <>
             {show && (
               <Layout>
-                <Component {...pageProps} />
+                <Component rol={user.rol} id={user.id} {...pageProps} />
               </Layout>
             )}
             {!show && <Loader backdrop content="Cargando..." vertical />}

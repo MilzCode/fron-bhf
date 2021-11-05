@@ -3,6 +3,9 @@ import Volver from "../components/other/Volver";
 import { useEffect } from "react";
 import useValidacion from "../hooks/useValidation";
 import validarCrearSolicitud from "../validations/validarCrearSolicitud";
+import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
+import { useRouter } from "next/router";
+import formatoRut from "../utils/formatoRut";
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -18,10 +21,56 @@ const stateInicialCrearSolicitud = {
 };
 
 //Funcionario
-const CrearSolicitud = () => {
-  const enviarSolicitud = () => {
-    console.log("Enviar solicitud");
-    console.log(valores);
+const CrearSolicitudDpe = ({ rol }: any) => {
+  const router = useRouter();
+  //validamos la vista sea correcta (especie de middleware)
+  if(rol !== "dpe") {
+    router.push("/");
+    return null;
+  }
+  const [enviado, setEnviado] = useState(false);
+
+  useEffect(() => {
+    if (enviado) {
+      router.push("/panel?oksol=true");
+    }
+  }, [enviado]);
+
+  const enviarSolicitud = async () => {
+    if (enviado) return;
+
+    const name_benef = valores.nombre;
+    const rut_benef = formatoRut(valores.rut);
+    const carrera_benef = valores.carrera;
+    const type_benef = valores.tipoEstudiante;
+    const documentacion: any = new Array();
+    documentacion.push(valores.asignacionFamiliar[0]);
+    documentacion.push(valores.certificadoNacimiento[0]);
+    documentacion.push(valores.comprobantePago[0]);
+    for (let index = 0; index < valores.documentos.length; index++) {
+      documentacion.push(valores.documentos[index]);
+    }
+
+    const anio = valores.periodo;
+    const comentario_funcionario = valores.datosAdicionales;
+    //ID VACIO
+    const user_id = "";
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const enviar = await useEnviarSolicitudFuncionario(
+      name_benef,
+      rut_benef,
+      carrera_benef,
+      type_benef,
+      documentacion,
+      anio,
+      user_id,
+      comentario_funcionario
+    );
+
+    if (enviar.mensaje === "Solicitud creada con exito") {
+      setEnviado(true);
+    }
   };
 
   const { valores, errores, handleSubmit, handleChange, handleBlur } =
@@ -31,16 +80,24 @@ const CrearSolicitud = () => {
       enviarSolicitud
     );
 
+  useEffect(() => {
+    if (enviado) {
+      router.push("/");
+    }
+  }, [enviado]);
+
   return (
     <div className="crearSolicitud">
       <h1 className="TITULO">Crear Solicitud por un tercero</h1>
       <form className="crearSolicitud__formulario" onSubmit={handleSubmit}>
         <div className="crearSolicitud__input LABELINPUT">
-          <h5>Por favor ingrese los datos del tercero en detalles adicionales</h5>
+          <h5>
+            Por favor ingrese los datos del tercero en detalles adicionales
+          </h5>
           <br />
         </div>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="nombre">Nombre del estudiante</label>
+          <label htmlFor="nombre">Nombre y apellidos del estudiante</label>
           <input
             id="nombre"
             type="text"
@@ -63,8 +120,11 @@ const CrearSolicitud = () => {
             type="text"
             name="rut"
             placeholder="Rut"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e, true);
+            }}
             onBlur={handleBlur}
+            value={formatoRut(valores.rut)}
           />
 
           {errores.rut && (
@@ -101,8 +161,8 @@ const CrearSolicitud = () => {
             onBlur={handleBlur}
           >
             <option value="">Seleccione una opción</option>
-            <option>Estudiante Nuevo</option>
-            <option>Estudiante Antiguo</option>
+            <option value="nuevo">Estudiante Nuevo</option>
+            <option value="antiguo">Estudiante Antiguo</option>
           </select>
           {errores.tipoEstudiante && (
             <>
@@ -137,6 +197,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.asignacionFamiliar && (
             <>
@@ -155,6 +216,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.certificadoNacimiento && (
             <>
@@ -171,6 +233,7 @@ const CrearSolicitud = () => {
             type="file"
             onChange={handleChange}
             onBlur={handleBlur}
+            accept=" .jpg, .jpeg, .pdf, .docx"
           />
           {errores.comprobantePago && (
             <>
@@ -181,33 +244,13 @@ const CrearSolicitud = () => {
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="documentos">Otros documentos (Opcional)</label>
           <input
-            id="documentos"
+            id="documento"
             name="documentos"
             type="file"
+            accept=" .jpg, .jpeg, .pdf, .docx"
             multiple
-            onChange={function (e) {
-              console.log(e.target.files);
-              //validación documentos
-              let documentos = e.target.files;
-              let valido = true;
-              if (documentos && documentos.length > 0) {
-                for (let i in documentos) {
-                  if (/(.jpg|.jpeg|.png|.pdf|.docx)$/i.test(documentos[i].name) === false) {
-                    valido = false;
-                  }
-                }
-              }
-              if (valido) {
-                let changedE = e;
-                changedE.target.value = "valido";
-                handleChange(changedE);
-              }
-              else {
-                let changedE = e;
-                changedE.target.value = "no valido";
-                handleChange(changedE);
-              }
-            }}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
           {errores.documentos && (
             <>
@@ -246,4 +289,4 @@ const CrearSolicitud = () => {
   );
 };
 
-export default CrearSolicitud;
+export default CrearSolicitudDpe;

@@ -3,7 +3,6 @@ import Volver from "../components/other/Volver";
 import { useEffect } from "react";
 import useValidacion from "../hooks/useValidation";
 import validarCrearSolicitud from "../validations/validarCrearSolicitud";
-import { AuthContext } from "../context/AuthConext";
 import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
 import { useRouter } from "next/router";
 import formatoRut from "../utils/formatoRut";
@@ -22,9 +21,8 @@ const stateInicialCrearSolicitud = {
 };
 
 //Funcionario
-const CrearSolicitud = () => {
+const CrearSolicitud = ({ id }: any) => {
   const router = useRouter();
-  const { authState } = React.useContext(AuthContext);
   const [enviado, setEnviado] = useState(false);
   //esta wea no se tiene que enviar 2 veces
   const enviarSolicitud = async () => {
@@ -43,7 +41,8 @@ const CrearSolicitud = () => {
     }
 
     const anio = valores.periodo;
-    const user_id = authState.id;
+    const comentario_funcionario = valores.datosAdicionales;
+    const user_id = id;
     //solucionar podria enviarse al login
     if (!user_id) {
       console.log("No hay ID");
@@ -58,7 +57,8 @@ const CrearSolicitud = () => {
       type_benef,
       documentacion,
       anio,
-      user_id
+      user_id,
+      comentario_funcionario
     );
 
     if (enviar.mensaje === "Solicitud creada con exito") {
@@ -75,7 +75,7 @@ const CrearSolicitud = () => {
 
   useEffect(() => {
     if (enviado) {
-      router.push("/");
+      router.push("/panel?oksol=true");
     }
   }, [enviado]);
 
@@ -84,7 +84,7 @@ const CrearSolicitud = () => {
       <h1 className="TITULO">Crear Solicitud</h1>
       <form className="crearSolicitud__formulario" onSubmit={handleSubmit}>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="nombre">Nombre del estudiante</label>
+          <label htmlFor="nombre">Nombre y apellidos del estudiante</label>
           <input
             id="nombre"
             type="text"
@@ -107,8 +107,11 @@ const CrearSolicitud = () => {
             type="text"
             name="rut"
             placeholder="Rut"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e, true);
+            }}
             onBlur={handleBlur}
+            value={formatoRut(valores.rut)}
           />
 
           {errores.rut && (

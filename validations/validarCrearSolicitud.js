@@ -12,12 +12,11 @@ export default function validarLogin(datos) {
       "El nombre del beneficiario debe tener al menos 3 caracteres";
   } else if (datos.nombre.split(" ").length < 3) {
     errors.nombre =
-      "El nombre del beneficiario debe estar completo";
-  }
-  else if (datos.nombre.length > 30) {
+      "El nombre del beneficiario debe tener nombre y 2 apellidos";
+  } else if (datos.nombre.length > 30) {
     errors.nombre =
       "El nombre del beneficiario debe tener menos de 30 caracteres";
-  } else if (!/^[a-zA-Z ]*$/.test(datos.nombre)) {
+  } else if (!/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/.test(datos.nombre)) {
     errors.nombre = "El nombre del beneficiario debe contener solo letras";
   }
 
@@ -36,7 +35,7 @@ export default function validarLogin(datos) {
   }
 
   if (!datos.periodo) {
-    errors.periodo = "El tipo de estudiante es requerido";
+    errors.periodo = "El periodo es requerido";
   }
 
   // if (!datos.asignacionFamiliar) {
