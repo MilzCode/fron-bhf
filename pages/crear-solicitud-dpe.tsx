@@ -6,6 +6,7 @@ import validarCrearSolicitud from "../validations/validarCrearSolicitud";
 import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionario";
 import { useRouter } from "next/router";
 import formatoRut from "../utils/formatoRut";
+import { Loader } from "rsuite";
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -24,13 +25,13 @@ const stateInicialCrearSolicitud = {
 const CrearSolicitudDpe = ({ rol }: any) => {
   const router = useRouter();
   //validamos la vista sea correcta (especie de middleware)
-  if(rol !== "dpe") {
+  if (rol !== "dpe") {
     router.push("/panel");
     return null;
   }
 
   const [enviado, setEnviado] = useState(false);
-
+  const [clickEnviar, setClickEnviar] = useState(false);
   useEffect(() => {
     if (enviado) {
       router.push("/panel?oksol=true");
@@ -38,8 +39,9 @@ const CrearSolicitudDpe = ({ rol }: any) => {
   }, [enviado]);
 
   const enviarSolicitud = async () => {
+    if (clickEnviar) return;
     if (enviado) return;
-
+    setClickEnviar(true);
     const name_benef = valores.nombre;
     const rut_benef = formatoRut(valores.rut);
     const carrera_benef = valores.carrera;
@@ -280,6 +282,7 @@ const CrearSolicitudDpe = ({ rol }: any) => {
         </div>
       </form>
       <Volver />
+      {clickEnviar && <Loader backdrop content="Cargando..." vertical />}
     </div>
   );
 };
