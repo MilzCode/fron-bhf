@@ -37,27 +37,15 @@ export default function validarLogin(datos) {
   if (!datos.periodo) {
     errors.periodo = "El periodo es requerido";
   }
-
-  // if (!datos.asignacionFamiliar) {
-  //   errors.asignacionFamiliar = "Debe seleccionar al menos un documento";
-  // }
-  // else if(/(.jpg|.jpeg|.pdf|.docx)$/i.test(datos.asignacionFamiliar) === false){
-  //   errors.asignacionFamiliar = "Solo se admiten documentos con formato pdf, docx, jpg o jpeg";
-  // }
-
-  // if (!datos.certificadoNacimiento) {
-  //   errors.certificadoNacimiento = "Debe seleccionar al menos un documento";
-  // }
-  // else if(/(.jpg|.jpeg|.pdf|.docx)$/i.test(datos.certificadoNacimiento) === false){
-  //   errors.certificadoNacimiento = "Solo se admiten documentos con formato pdf, docx, jpg o jpeg";
-  // }
-
-  // if (!datos.comprobantePago) {
-  //   errors.comprobantePago = "Debe seleccionar al menos un documento";
-  // }
-  // else if(/(.jpg|.jpeg|.pdf|.docx)$/i.test(datos.comprobantePago) === false){
-  //   errors.comprobantePago = "Solo se admiten documentos con formato pdf, docx, jpg o jpeg";
-  // }
+  if (!datos.asignacionFamiliar) {
+    errors.asignacionFamiliar = "La asignación familiar es requerida";
+  }
+  if (!datos.certificadoNacimiento) {
+    errors.certificadoNacimiento = "El certificado de nacimiento es requerido";
+  }
+  if (!datos.comprobantePago) {
+    errors.comprobantePago = "El comprobante de pago es requerido";
+  }
 
   if (datos.datosAdicionales && datos.datosAdicionales.length > 1000) {
     errors.archivo = "No puede escribir más de 500 caracteres";
