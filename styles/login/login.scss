@@ -7,8 +7,8 @@
       margin: auto;
       width: 50%;
       min-width: 470px;
-      padding: 50px 0;
-      margin-top: 100px;
+      padding: 10px 0;
+      margin-top: 10vh;
       position: relative;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
@@ -62,8 +62,8 @@
       height: 50px;
       background-color: #7d9cc0;
       border-radius: 50px;
-      color: black;
-      font-size: 30px;
+      color: white;
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       border: 1px solid grey;
@@ -108,5 +108,30 @@
       color: red;
       font-size: 25px;
       text-align: center;
+    }
+    &__modal__window {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__modal__window__content {
+      background-color: rgba(240,240,240);
+      width: 60%;
+      min-width: 300px;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
