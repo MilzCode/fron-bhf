@@ -42,13 +42,6 @@ const Home: NextPage = ({ rol }: any) => {
             <p className="card__text">Permite ver o editar mis datos de contacto.</p>
             <Link href="/mis-datos"><a className="button__funcionalidades">IR</a></Link>
           </div> */}
-          <div className="card">
-            <h5>Cerrar sesión</h5>
-            <p className="card__text">Salir de la sesión</p>
-            <Link href="/mis-datos">
-              <a className="button__funcionalidades">Salir</a>
-            </Link>
-          </div>
         </div>
 
         {rol === "dpe" && (

@@ -11,6 +11,7 @@
       margin-top: 10vh;
       position: relative;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      
     }
     @media (max-width: 767px) {
       &__content {
@@ -72,6 +73,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      outline: none !important;
       &:hover {
         opacity: 0.95;
       }

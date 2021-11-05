@@ -12,11 +12,12 @@ const CerrarSesion = () => {
             if(msj === 'Salió con exito'){
                 console.log('Se hizo bien el llamado');
                 localStorage.removeItem('token');
-                router.push('/');
+                
                 
             }else{
                 console.error(data);
             }
+            router.push('/');
         });
         
     }
