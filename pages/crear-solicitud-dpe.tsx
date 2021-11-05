@@ -81,12 +81,6 @@ const CrearSolicitudDpe = ({ rol }: any) => {
       enviarSolicitud
     );
 
-  useEffect(() => {
-    if (enviado) {
-      router.push("/");
-    }
-  }, [enviado]);
-
   return (
     <div className="crearSolicitud">
       <h1 className="TITULO">Crear Solicitud por un tercero</h1>

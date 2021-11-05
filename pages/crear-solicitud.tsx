@@ -48,8 +48,9 @@ const CrearSolicitud = ({ id }: any) => {
       console.log("No hay ID");
       return;
     }
-
+    
     // eslint-disable-next-line react-hooks/rules-of-hooks
+    
     const enviar = await useEnviarSolicitudFuncionario(
       name_benef,
       rut_benef,
@@ -238,27 +239,6 @@ const CrearSolicitud = ({ id }: any) => {
             multiple
             onChange={handleChange}
             onBlur={handleBlur}
-            // onChange={function (e) {
-
-            //   //validación documentos
-            //   let documentos = e.target.files;
-            //   console.log(documentos)
-
-            //   let valido = true;
-
-            //   if (documentos && documentos.length > 0) {
-            //     for (var i = 0; i < documentos.length; i++) {
-
-            //       if (/(.jpg|.jpeg |.pdf|.docx)$/i.test(documentos[i].name) === false) {
-            //         valido = false;
-            //       }
-            //     }
-            //   }
-            //   if (!valido) {
-            //     errores.documentos = "Solo se permiten archivos con extensión .jpg, .jpeg , .pdf o .docx";
-            //   }
-            //   handleChange(e);
-            // }}
           />
           {errores.documentos && (
             <>
