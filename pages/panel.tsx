@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import VentanaModal from "../components/other/VentanaModal";
+import CerrarSesion from "../components/other/CerrarSesion";
 
 const Home: NextPage = ({ rol }: any) => {
   const router = useRouter();
@@ -83,6 +84,7 @@ const Home: NextPage = ({ rol }: any) => {
             </div>
           </>
         )}
+        <CerrarSesion />
       </>
     </>
   );
