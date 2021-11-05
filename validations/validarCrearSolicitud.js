@@ -10,7 +10,11 @@ export default function validarLogin(datos) {
   } else if (datos.nombre.length < 3) {
     errors.nombre =
       "El nombre del beneficiario debe tener al menos 3 caracteres";
-  } else if (datos.nombre.length > 30) {
+  } else if (datos.nombre.split(" ").length < 3) {
+    errors.nombre =
+      "El nombre del beneficiario debe estar completo";
+  }
+  else if (datos.nombre.length > 30) {
     errors.nombre =
       "El nombre del beneficiario debe tener menos de 30 caracteres";
   } else if (!/^[a-zA-Z ]*$/.test(datos.nombre)) {
