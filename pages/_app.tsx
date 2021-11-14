@@ -13,29 +13,27 @@ import Layout from "../components/layout/Layout";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  //esta linea es para no validar la conexion con la base de datos para debugear
   const router = useRouter();
   //rutas de acceso sin login
-  const publicRoutes = ["/"];
+  const publicRoutes = ["/", "/panel"];
   //ruta actual
   const path = router.asPath.split("?")[0];
   //parametro que indica true si la ruta actual es publica
   const isPublicRoute = publicRoutes.includes(path);
-  //show muestra el contenido de la pagina
-
-  //el state inicial de show = false a modo debug queda en true y se comenta el use effect para verificar el estado inicial
-  // const [show, setShow] = useState(true);
+  //show muestra el contenido de la pagina si es true
   const [show, setShow] = useState(false);
-  //el state inicial de user = null
-  // const [user, setUser] = useState({ rol: "funcionario", id: 1 }) as any;
+  //datos del usuario logeado, si la base de datos responde que no hay usuario sera false,
+  // si responde correctamente tendra un objeto con los datos del usuario.
   const [user, setUser]: any = useState(null);
+  //funcion para llamar a la base de datos y solicitar datos del usuario.
   const checkLogin = async () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const data = await useCheckLogin();
     //si no esta logueado redirige a logear
     if (!data.email) {
       setShow(false);
-      router.push("/");
+      setUser(false); //en caso de que sea false significa que la base de datos respondio con un error o el usuario no esta logeado
+      !isPublicRoute && router.push("/");
       return;
     }
     setShow(true);
@@ -43,7 +41,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     return data;
   };
 
-  //esta comentado para no validar la conexion con la base de datos para debugear
   useEffect(() => {
     checkLogin();
   }, [router.route]);
@@ -91,6 +88,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <AuthProvider>
         {isPublicRoute ? (
+          // && user === false //con esta linea podriamos validar que la base de datos respondio que el usuario no esta logueado
           //en la ruta raiz va el login
           <Component rol={null} id={null} {...pageProps} />
         ) : (

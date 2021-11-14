@@ -18,8 +18,8 @@ const Home: NextPage = ({ rol }: any) => {
         </VentanaModal>
       )}
       <HeaderPanel
-        nameUser="usuario"
-        rolUser="funcionario"
+        nameUser="TEST"
+        rolUser="TEST"
         title="Plataforma Beca Hijo de Funcionario"
         onCerrarSesion={CerrarSesion}
       />
