@@ -9,7 +9,7 @@ import Link from "next/link";
  * **/
 const CardPanel = ({ title, children, href }: any) => {
   return (
-    <div className="col-sm-6 cardPanel">
+    <div className="col-lg-4 cardPanel">
       <div className="card text-center border rounded-3 border-primary shadow-1 m-3">
         <div className="card-header p-0">
           <Message showIcon type="info">
