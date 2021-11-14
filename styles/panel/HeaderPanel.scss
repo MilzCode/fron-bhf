@@ -1,0 +1,21 @@
+.headerPanel {
+  &__bg {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgb(255, 255, 255)
+      ),
+      url("/portada.jpg");
+    background-position-x: right;
+    background-repeat: no-repeat;
+    //background opacity
+  }
+  @media screen and (max-width: 768px) {
+    &__text {
+      display: inline-block;
+      background-color: white;
+      border-radius: 0.5em;
+      padding: 0 0.5em;
+      margin-bottom: 0.2em;
+    }
+  }
+}

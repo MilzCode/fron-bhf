@@ -188,17 +188,16 @@ $fontSize5: sizeResponsive(0.3);
   background-color: $Pantone_485_C;
 }
 
-
 .BACKGROUNDCOLORPURPLE {
   background-color: $Pantone_2587_C;
 }
 
-.button__logout{
+.button__logout {
   margin-top: 50px;
   margin-bottom: 20px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
-.ERROR{
+.ERROR {
   @extend .COLORRED;
   font-size: $fontSize4;
   margin-top: 0;
@@ -235,3 +234,5 @@ $fontSize5: sizeResponsive(0.3);
     }
   }
 }
+
+

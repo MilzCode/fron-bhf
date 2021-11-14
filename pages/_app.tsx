@@ -10,10 +10,13 @@ import "../styles/login/login.scss";
 import useCheckLogin from "../hooks/useCheckLogin";
 import Layout from "../components/layout/Layout";
 
+import Script from "next/script";
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const debug = { show: true, user: { rol: "funcionario", id: 1 } };
   //show muestra el contenido de la pagina
-  const [show, setShow] = useState(false);
-  const [user, setUser] = useState({}) as any;
+  const [show, setShow] = useState(debug.show);
+  const [user, setUser] = useState(debug.user) as any;
   const router = useRouter();
   const checkLogin = async () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -29,9 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     return data;
   };
 
-  useEffect(() => {
-    checkLogin();
-  }, [router.route]);
+  // useEffect(() => {
+  //   checkLogin();
+  // }, [router.route]);
 
   return (
     <>
@@ -52,8 +55,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* FIN INICIO CON GOOGLE */}
         <link rel="icon" href="/favicon.ico" />
         <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
           rel="stylesheet"
-          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         />
         <link
           rel="stylesheet"
@@ -61,7 +64,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossOrigin="anonymous"
         ></link>
+        {/* MDB */}
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+          rel="stylesheet"
+        />
       </Head>
+      <Script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+      ></Script>
 
       {/* <Component {...pageProps} /> */}
 

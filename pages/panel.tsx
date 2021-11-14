@@ -4,10 +4,12 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import VentanaModal from "../components/other/VentanaModal";
 import CerrarSesion from "../components/other/CerrarSesion";
+import HeaderPanel from "../components/panel/HeaderPanel";
+import CardPanel from "../components/panel/CardPanel";
+import { Divider } from "rsuite";
 
 const Home: NextPage = ({ rol }: any) => {
   const router = useRouter();
-
   return (
     <>
       {router.query.oksol == "true" && (
@@ -15,13 +17,26 @@ const Home: NextPage = ({ rol }: any) => {
           Solicitud Creada con exito
         </VentanaModal>
       )}
-      <div className="p-5 text-center bg-light">
-        <h1 className="mb-3">Sistema de gestión de noticias y eventos UCN</h1>
-        <h4 className="mb-3">Bienvenido USUARIO</h4>
-      </div>
+      <HeaderPanel
+        nameUser="usuario"
+        rolUser="funcionario"
+        title="WENA"
+        onCerrarSesion={CerrarSesion}
+      />
       <>
-        <h2>Mi cuenta</h2>
-        <div className="cards">
+        <Divider>Mi cuenta </Divider>
+        <div className="cardPanelContainer">
+          <CardPanel title="Crear Solicitud de Beca" href="/crear-solicitud">
+            Permite ingresar una nueva solicitud si es que es posible y no hay
+            una en curso para la misma persona.
+          </CardPanel>
+          <CardPanel title="Crear Solicitud de Beca" href="/crear-solicitud">
+            Permite ingresar una nueva solicitud si es que es posible y no hay
+            una en curso para la misma persona.
+          </CardPanel>
+        </div>
+
+        {/* <div className="cards">
           <div className="card">
             <h5>Crear Solicitud de Beca</h5>
             <p className="card__text">
@@ -32,7 +47,7 @@ const Home: NextPage = ({ rol }: any) => {
               <a className="button__funcionalidades">IR</a>
             </Link>
           </div>
-          {/* <div className="card">
+          <div className="card">
             <h5>Revisar Solicitud de Beca</h5>
             <p className="card__text">Permite revisar el estado de solicitud de beca, si es que hay una en curso.</p>
             <Link href="/mis-solicitudes"><a className="button__funcionalidades">IR</a></Link>
@@ -41,15 +56,16 @@ const Home: NextPage = ({ rol }: any) => {
             <h5>Mis Datos</h5>
             <p className="card__text">Permite ver o editar mis datos de contacto.</p>
             <Link href="/mis-datos"><a className="button__funcionalidades">IR</a></Link>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
 
         {rol === "dpe" && (
           <>
             <hr />
             <h2>Dirección de personas</h2>
+            <hr />
             <div className="cards">
-              <div className="card">
+              {/* <div className="card">
                 <h5>Crear solicitud por un tercero</h5>
                 <p>
                   Permite ingresar una nueva solicitud si es que es posible y no
@@ -58,7 +74,8 @@ const Home: NextPage = ({ rol }: any) => {
                 <Link href="/crear-solicitud-dpe">
                   <a className="button__funcionalidades">IR</a>
                 </Link>
-              </div>
+              </div> */}
+
               {/* <div className="card">
             <h5>Revisar nuevas solicitudes</h5>
             <p>Despliega todas las solicitud pendientes.</p>
@@ -77,8 +94,8 @@ const Home: NextPage = ({ rol }: any) => {
             </div>
           </>
         )}
-        <CerrarSesion />
       </>
+      <br />
     </>
   );
 };
