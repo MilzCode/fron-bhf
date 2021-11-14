@@ -1,7 +1,18 @@
 .cardPanel {
-  display: inline-block;
-//   flex: 50px 100px 100px;
-}
-.cardPanelContainer {
-  display: flex;
+  margin-top: 1em;
+
+  & .card {
+    height: 100%;
+    position: relative;
+  }
+  & .card-text {
+    margin-bottom: 0.5em;
+  }
+  & .btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin-bottom: 1em;
+  }
 }

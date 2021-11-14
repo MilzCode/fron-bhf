@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Message, Row } from "rsuite";
+import { Message } from "rsuite";
 import Link from "next/link";
 
 /**
@@ -9,7 +9,7 @@ import Link from "next/link";
  * **/
 const CardPanel = ({ title, children, href }: any) => {
   return (
-    <div className="cardPanel">
+    <div className="col-sm-6 cardPanel">
       <div className="card text-center border rounded-3 border-primary shadow-1 m-3">
         <div className="card-header p-0">
           <Message showIcon type="info">
