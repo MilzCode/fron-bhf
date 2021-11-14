@@ -20,8 +20,8 @@ const CardPanel = ({ title, children, href }: any) => {
           <p className="card-text">{children}</p>
           <br />
           <Link href={href} passHref>
-            <button type="button" className="btn btn-primary">
-              <h5>Ir</h5>
+            <button type="button" className="btn btn-primary cardPanel__irBtn">
+              Ir
             </button>
           </Link>
         </div>

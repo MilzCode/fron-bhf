@@ -1,5 +1,11 @@
 .cardPanel {
   margin-bottom: 1em;
+  font-size: $fontSize3 !important;
+  //title card
+  & .rs-message-body {
+    font-size: $fontSize3 !important;
+    font-weight: bold;
+  }
   & .card {
     height: 100%;
     position: relative;
@@ -13,5 +19,9 @@
     transform: translateX(-50%);
     bottom: 0;
     margin-bottom: 1em;
+  }
+  &__irBtn {
+    font-size: $fontSize3 !important;
+    font-weight: bold;
   }
 }

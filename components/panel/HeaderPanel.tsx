@@ -8,16 +8,16 @@ const Header = ({ nameUser, rolUser, title, onCerrarSesion }: any) => {
         {/* <img src="/portada.jpg" alt="hola" className=""/> */}
         <div>
           <div className="headerPanel__text">
-            <h5 className="mb-0 ">Bienvenido: {nameUser}</h5>
-            <h5 className="mb-3">Usted a ingresado como: {rolUser}</h5>
+            <p className="mb-0 ">Bienvenido: {nameUser}</p>
+            <p className="mb-3">Usted a ingresado como: {rolUser}</p>
           </div>
         </div>
         <button
           type="button"
-          className="btn btn-danger btn-lg"
+          className="btn btn-danger btn-lg headerPanel__logout"
           onClick={onCerrarSesion}
         >
-          <h5>Cerrar Sesión</h5>
+          Cerrar Sesión
         </button>
       </div>
       <h2 className="mb-3 text-center headerPanel__title">{title}</h2>

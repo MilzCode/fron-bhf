@@ -42,7 +42,8 @@ $GrisMDB: #e0e0e0;
 
 /**tamaños**/
 //Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeResponsive()
-$baseSizeResponsive: min(5rem, 7vw);
+$baseSizeResponsive: min(3.5rem, 7vw);
+
 //ancho del sidebar (sidebar actualmente desactivado)
 $widthSideBar: 0px;
 //marginMain es el espacio en los costados del contenido.
@@ -56,10 +57,10 @@ $marginMain: 10px;
 //Font size usados para size Responsive
 //1 , 0.55, 0.45 , 0.4
 $fontSize1: sizeResponsive(1);
-$fontSize2: sizeResponsive(0.55);
-$fontSize3: sizeResponsive(0.45);
-$fontSize4: sizeResponsive(0.4);
-$fontSize5: sizeResponsive(0.3);
+$fontSize2: sizeResponsive(0.7);
+$fontSize3: sizeResponsive(0.6);
+$fontSize4: sizeResponsive(0.55);
+$fontSize5: sizeResponsive(0.5);
 
 /**funciones**/
 //nada aun
@@ -234,5 +235,3 @@ $fontSize5: sizeResponsive(0.3);
     }
   }
 }
-
-

@@ -9,6 +9,20 @@
     background-repeat: no-repeat;
     //background opacity
   }
+  &__title {
+    font-size: $fontSize1 !important;
+  }
+  &__logout {
+    font-size: $fontSize4 !important;
+  }
+  &__text{
+    font-size: $fontSize3 !important;
+    font-weight: bold;
+    & > p:first-child{
+      margin-top: 0.6em;
+    }
+
+  }
   @media screen and (max-width: 768px) {
     &__text {
       display: inline-block;
