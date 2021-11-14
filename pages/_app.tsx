@@ -13,9 +13,12 @@ import Layout from "../components/layout/Layout";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  //esta linea es para no validar la conexion con la base de datos para debugear
   const debug = { show: true, user: { rol: "funcionario", id: 1 } };
   //show muestra el contenido de la pagina
+  //el state inicial de show = false
   const [show, setShow] = useState(debug.show);
+  //el state inicial de user = null
   const [user, setUser] = useState(debug.user) as any;
   const router = useRouter();
   const checkLogin = async () => {
@@ -31,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     setUser({ rol: data.rol, id: data.id });
     return data;
   };
+  //esta comentado para no validar la conexion con la base de datos para debugear
 
   // useEffect(() => {
   //   checkLogin();
