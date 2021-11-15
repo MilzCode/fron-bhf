@@ -2,14 +2,13 @@
 import React from "react";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
-import { UrlObject } from "url";
 
 interface HeaderPanelProps {
   nameUser: string;
   rolUser?: string;
   title: string;
   onCerrarSesion?: any;
-  BreadcrumbLinks?: Array<{ href: string, name: string }>;
+  BreadcrumbLinks?: Array<{ href: string; name: string }>;
   BreadScrumbLinkInicio?: string;
 }
 const Header = ({
@@ -31,7 +30,7 @@ const Header = ({
             )}
           </div>
         </div>
-        {onCerrarSesion && (
+        {onCerrarSesion ? (
           <button
             type="button"
             className="btn btn-danger btn-lg headerPanel__logout"
@@ -39,6 +38,11 @@ const Header = ({
           >
             Cerrar Sesión
           </button>
+        ) : (
+          <>
+            <br />
+            <br />
+          </>
         )}
       </div>
       <MDBBreadcrumb>

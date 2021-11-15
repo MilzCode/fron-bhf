@@ -92,6 +92,9 @@ $fontSize5: sizeResponsive(0.5);
 .INPUT {
   border-radius: 0.5rem !important;
   border: 1px solid $AzulClaroMDB;
+  // border: 1px solid $Pantone_Black_C;
+  box-shadow: 0 0 0.2em $Black_Shadow;
+
   padding: 0.5rem;
   margin-bottom: 1rem;
   overflow: hidden !important;
@@ -116,7 +119,6 @@ $fontSize5: sizeResponsive(0.5);
     display: block;
     width: 100%;
     //shadow
-    box-shadow: 0 0 0.2em $Black_Shadow;
   }
   & > textarea {
     @extend .INPUT;
@@ -125,14 +127,12 @@ $fontSize5: sizeResponsive(0.5);
     height: 8em;
     resize: none;
     overflow-y: scroll !important;
-    box-shadow: 0 0 0.2em $Black_Shadow;
   }
   & > select {
     @extend .INPUT;
     display: block;
     width: 100%;
     background-color: white;
-    box-shadow: 0 0 0.2em $Black_Shadow;
   }
 }
 
