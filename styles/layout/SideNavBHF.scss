@@ -1,3 +1,7 @@
+// $background-color: $whiteRsuite;
+$background-color: blue;
+$colorText: $grisRsuite;
+
 .sideNavBHF {
   position: fixed;
   top: 0 !important;
@@ -12,9 +16,45 @@
   &__body {
     width: $widthSideBar !important;
     transition: width 0.5s !important;
+    background-color: $background-color !important;
+
     &--expanded {
       @extend .sideNavBHF__body;
+      overflow: hidden !important;
       width: 250px !important;
     }
   }
+}
+
+//iconos
+.rs-sidenav-item,
+.rs-dropdown-toggle {
+  font-family: $fontFamily !important;
+  text-decoration: none !important;
+  font-weight: 300 !important;
+  position: relative;
+  background-color: $background-color !important;
+  color: $colorText !important;
+
+  & i {
+    position: absolute;
+    font-size: 1.5em !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translate(-17.5%, -37%) !important;
+  }
+  & button {
+    outline: none !important;
+    border: none !important;
+  }
+}
+//tooltip iconos
+.rs-tooltip {
+  & i {
+    display: none;
+  }
+}
+//toggle
+.rs-toggle-presentation {
+  margin: 5px 0 0 5px;
 }

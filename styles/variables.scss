@@ -39,13 +39,15 @@ $BlueLink1: #007bff;
 $BlueLink2: #0a56b3;
 $AzulClaroMDB: #bdcfdc;
 $GrisMDB: #e0e0e0;
+$azulClasicUcn: #425563;
+$whiteRsuite: #f7f7fa;
+$grisRsuite: #8e8e93;
 
 /**tamaños**/
 //Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeResponsive()
 $baseSizeResponsive: min(3.5rem, 7vw);
 
-//ancho del sidebar (sidebar actualmente desactivado)
-$widthSideBar: 55px;
+$widthSideBar: 56px;
 //marginMain es el espacio en los costados del contenido.
 $marginMain: 10px;
 
