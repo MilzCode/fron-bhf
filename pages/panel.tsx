@@ -22,6 +22,7 @@ const Home: NextPage = ({ rol }: any) => {
         rolUser="TEST"
         title="Plataforma Beca Hijo de Funcionario"
         onCerrarSesion={CerrarSesion}
+        inicio
       />
       <>
         <Divider>Mi cuenta </Divider>

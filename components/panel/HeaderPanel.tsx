@@ -10,7 +10,18 @@ interface HeaderPanelProps {
   onCerrarSesion?: any;
   BreadcrumbLinks?: Array<{ href: string; name: string }>;
   BreadScrumbLinkInicio?: string;
+  inicio?: boolean;
 }
+/**
+ *
+ * @param nameUser Nombre del usuario
+ * @param rolUser Rol del usuario
+ * @param title Titulo del panel
+ * @param onCerrarSesion Funcion para cerrar sesion (opcional)
+ * @param BreadcrumbLinks Links para el breadcrumb, se espera un arreglo de objetos con la propiedad href y name ej: [{href: "/", name: "Inicio"}, {href: "/", name: "Mi cuenta"}]
+ * @param BreadScrumbLinkInicio Link para el breadcrumb inicio, se espera un string con la ruta ej: "/"
+ * @param inicio Indica si el panel es el inicio
+ *  **/
 const Header = ({
   nameUser,
   rolUser,
@@ -18,6 +29,7 @@ const Header = ({
   onCerrarSesion,
   BreadcrumbLinks,
   BreadScrumbLinkInicio,
+  inicio,
 }: HeaderPanelProps) => {
   return (
     <div className="headerPanel">
@@ -47,11 +59,15 @@ const Header = ({
       </div>
       <MDBBreadcrumb>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <MDBBreadcrumbItem>
-          <Link href={BreadScrumbLinkInicio ? BreadScrumbLinkInicio : "/panel"}>
-            Inicio
-          </Link>
-        </MDBBreadcrumbItem>
+        {!inicio && (
+          <MDBBreadcrumbItem>
+            <Link
+              href={BreadScrumbLinkInicio ? BreadScrumbLinkInicio : "/panel"}
+            >
+              Inicio
+            </Link>
+          </MDBBreadcrumbItem>
+        )}
         {BreadcrumbLinks &&
           BreadcrumbLinks.map((link, index) => (
             <MDBBreadcrumbItem key={index}>
