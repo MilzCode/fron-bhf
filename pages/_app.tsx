@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     checkLogin();
-  }, [router.route]);
+  }, [path]);
 
   return (
     <>
