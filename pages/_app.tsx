@@ -87,13 +87,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* <Component {...pageProps} /> */}
 
       <AuthProvider>
-        {isPublicRoute ? (
+        {isPublicRoute && user === false ? (
           // && user === false //con esta linea podriamos validar que la base de datos respondio que el usuario no esta logueado
           //en la ruta raiz va el login
           <Component rol={null} id={null} {...pageProps} />
         ) : (
           <>
-            {show && (
+            {show && user && (
               <Layout>
                 <Component rol={user.rol} id={user.id} {...pageProps} />
               </Layout>
