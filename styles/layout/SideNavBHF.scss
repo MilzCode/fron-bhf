@@ -23,40 +23,40 @@ $colorText: $grisRsuite;
       width: 250px !important;
     }
   }
-}
 
-//iconos
-.rs-sidenav-item,
-.rs-dropdown-toggle {
-  font-family: $fontFamily !important;
-  text-decoration: none !important;
-  font-weight: 300 !important;
-  position: relative;
-  background-color: $background-color !important;
-  color: $colorText !important;
+  //iconos
+  .rs-sidenav-item,
+  .rs-dropdown-toggle {
+    font-family: $fontFamily !important;
+    text-decoration: none !important;
+    font-weight: 300 !important;
+    position: relative;
+    background-color: $background-color !important;
+    color: $colorText !important;
 
-  & i {
-    position: absolute;
-    font-size: 1.5em !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    transform: translate(-17.5%, -37%) !important;
+    & i {
+      position: absolute;
+      font-size: 1.5em !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      transform: translate(-17.5%, -37%) !important;
+    }
+    & button {
+      outline: none !important;
+      border: none !important;
+    }
   }
-  & button {
-    outline: none !important;
-    border: none !important;
+  //tooltip iconos
+  .rs-tooltip {
+    & i {
+      display: none;
+    }
   }
-}
-//tooltip iconos
-.rs-tooltip {
-  & i {
-    display: none;
+  //toggle
+  .rs-toggle-presentation {
+    margin: 5px 0 0 5px;
   }
-}
-//toggle
-.rs-toggle-presentation {
-  margin: 5px 0 0 5px;
-}
-.rs-dropdown-toggle-caret {
-  margin-left: 1.1em !important;
+  .rs-dropdown-toggle-caret {
+    margin-left: 1.1em !important;
+  }
 }
