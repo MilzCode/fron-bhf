@@ -15,13 +15,15 @@
   &__logout {
     font-size: $fontSize4 !important;
   }
-  &__text{
+  &__text {
     font-size: $fontSize3 !important;
     font-weight: bold;
-    & > p:first-child{
+    & > p:first-child {
       margin-top: 0.6em;
     }
-
+  }
+  & .breadcrumb {
+    font-size: $fontSize4 !important;
   }
   @media screen and (max-width: 768px) {
     &__text {
