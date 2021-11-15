@@ -3,7 +3,7 @@ import SideNavBHF from "./SideNavBHF";
 const Layout = ({ children }: any) => { 
   return (
     <>
-      {/* <SideNavBHF/> */}
+      <SideNavBHF/>
       <main className="layout__main">{children}</main>
     </>
   );

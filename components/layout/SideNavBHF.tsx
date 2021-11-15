@@ -5,7 +5,6 @@ import Link from "next/link";
 const SideNavBHF = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [activeKey, setActiveKey] = React.useState("1");
-
   function handleToggle() {
     setExpanded(!expanded);
   }

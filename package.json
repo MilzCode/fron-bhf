@@ -13,6 +13,7 @@
     "css-loader": "^6.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "mdb-react-ui-kit": "^1.6.0",
     "mini-css-extract-plugin": "^2.4.3",
     "next": "^11.1.2",
     "next-compose-plugins": "^2.2.1",

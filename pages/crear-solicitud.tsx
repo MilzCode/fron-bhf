@@ -7,6 +7,9 @@ import useEnviarSolicitudFuncionario from "../hooks/useEnviarSolicitudFuncionari
 import { useRouter } from "next/router";
 import formatoRut from "../utils/formatoRut";
 import { Loader } from "rsuite";
+import HeaderPanel from "../components/panel/HeaderPanel";
+import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
+import Link from "next/link";
 
 const stateInicialCrearSolicitud = {
   nombre: "",
@@ -94,7 +97,7 @@ const CrearSolicitud = ({ id }: any) => {
 
   return (
     <div className="crearSolicitud">
-      <h1 className="TITULO">Crear Solicitud</h1>
+      <HeaderPanel nameUser="TEST" rolUser="TEST" title="Crear Solicitud" />
       <form className="crearSolicitud__formulario" onSubmit={handleSubmit}>
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="nombre">Nombre y apellidos del estudiante</label>
