@@ -217,11 +217,14 @@ $fontSize5: sizeResponsive(0.5);
   text-align: center;
   max-width: 100% !important;
   overflow: auto;
+  & * {
+    font-size: 1em !important;
+  }
 }
 
 //Este estilo sirve para representar Datos (1 columna), se espera que contenga varios div dentro.
 .TABLERESPONSIVE2 {
-  font-size: $fontSize2;
+  font-size: $fontSize4;
   max-width: 100% !important;
   overflow: auto;
 
