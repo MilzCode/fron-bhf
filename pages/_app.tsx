@@ -11,11 +11,13 @@ import useCheckLogin from "../hooks/useCheckLogin";
 import Layout from "../components/layout/Layout";
 
 import Script from "next/script";
+import 'rsuite/dist/rsuite.min.css';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   //rutas de acceso sin login
-  const publicRoutes = ["/"];
+  const publicRoutes = ["/","/panel"];
   //ruta actual
   const path = router.asPath.split("?")[0];
   //parametro que indica true si la ruta actual es publica
