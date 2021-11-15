@@ -1,5 +1,4 @@
-// $background-color: $whiteRsuite;
-$background-color: blue;
+$background-color: $whiteRsuite;
 $colorText: $grisRsuite;
 
 .sideNavBHF {
@@ -57,4 +56,7 @@ $colorText: $grisRsuite;
 //toggle
 .rs-toggle-presentation {
   margin: 5px 0 0 5px;
+}
+.rs-dropdown-toggle-caret {
+  margin-left: 1.1em !important;
 }

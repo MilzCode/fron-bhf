@@ -1,8 +1,6 @@
 import React from "react";
-import { Toggle, Sidenav, Nav, Dropdown } from "rsuite";
-
+import { Toggle, Sidenav, Nav } from "rsuite";
 import Link from "next/link";
-
 const SideNavBHF = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [activeKey, setActiveKey] = React.useState("1");
@@ -40,11 +38,6 @@ const SideNavBHF = () => {
                   Mis Datos
                 </Nav.Item>
               </Link>
-              <Dropdown eventKey="4" title="Advanced">
-                <Dropdown.Item eventKey="4-1">Privacy</Dropdown.Item>
-                <Dropdown.Item eventKey="4-2">About</Dropdown.Item>
-                <Dropdown.Item eventKey="4-3">Terms</Dropdown.Item>
-              </Dropdown>
             </Nav>
           </Sidenav.Body>
         </Sidenav>
