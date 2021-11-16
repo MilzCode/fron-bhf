@@ -8,7 +8,11 @@ import Volver from "../../components/other/Volver";
  * Esta vista corresponde a la página de nuevas solicitudes desde el punto de vista de un encargado.
  * **/
 const NuevasSolicitudes = () => {
+
+
+
   return (
+    
     <div className="nuevasSolicitudes">
       <h1 className="TITULO">Nuevas solicitudes</h1>
       <div className="FILTRO">
