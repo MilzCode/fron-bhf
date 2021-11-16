@@ -1,5 +1,13 @@
 import React from "react";
 
+interface VentanaModalProps {
+  children: any;
+  exitBotonText?: string;
+  exitFunction?: any;
+  aceptarBotonText?: string | undefined;
+  aceptarFunction?: any;
+}
+
 /**
  * Este componente es una ventana modal que tiene un boton de salir y puede ejecutar una
  * función de salida.
@@ -10,15 +18,6 @@ import React from "react";
  * @param aceptarBotonText: si quiere un segundo boton, y el texto que desee mostrar:
  * @param aceptarFunction: la función que se ejecuta al aceptar
  * **/
-
-interface VentanaModalProps {
-  children: any;
-  exitBotonText?: string;
-  exitFunction?: any;
-  aceptarBotonText?: string | undefined;
-  aceptarFunction?: any;
-}
-
 const VentanaModal = ({
   children,
   exitBotonText,
