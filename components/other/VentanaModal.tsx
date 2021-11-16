@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactChild } from "react-virtualized/node_modules/@types/react";
 
 /**
  * Este componente es una ventana modal que tiene un boton de salir y puede ejecutar una
