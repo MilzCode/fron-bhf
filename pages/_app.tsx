@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [show, setShow] = useState(false);
   //datos del usuario logeado, si la base de datos responde que no hay usuario sera false,
   // si responde correctamente tendra un objeto con los datos del usuario.
-  const [user, setUser]: any = useState(false);
+  const [user, setUser]: any = useState(null);
   //funcion para llamar a la base de datos y solicitar datos del usuario.
   const checkLogin = async () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
