@@ -16,7 +16,7 @@ import "rsuite/dist/rsuite.min.css";
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   //rutas de acceso sin login
-  const publicRoutes = ["/", "/panel"];
+  const publicRoutes = ["/"];
   //ruta actual
   const path = router.asPath.split("?")[0];
   //parametro que indica true si la ruta actual es publica
@@ -91,9 +91,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {isPublicRoute && user === false ? (
           // && user === false //con esta linea podriamos validar que la base de datos respondio que el usuario no esta logueado
           //en la ruta raiz va el login
-          <Layout>
-            <Component rol={null} id={null} {...pageProps} />
-          </Layout>
+          <Component rol={null} id={null} {...pageProps} />
         ) : (
           <>
             {show && user && (
