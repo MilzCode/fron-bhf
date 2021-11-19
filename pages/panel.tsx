@@ -74,10 +74,38 @@ const Home: NextPage = ({ rol }: any) => {
             </div>
           </>
         )}
-        {rol === "administrador" && (
+        {rol === "cobranza" && (
           <>
             <br />
             <Divider>Departamento de cobranzas</Divider>
+
+            <div className="row">
+              <CardPanel
+                title="Revisar nuevas solicitudes"
+                href="/nuevas-solicitudes"
+              >
+                Despliega todas las solicitud pendientes.
+              </CardPanel>
+              <CardPanel
+                title="Historial de solicitudes"
+                href="/historial-solicitudes"
+              >
+                Se muestra el historial de todas las solicitudes hechas.
+              </CardPanel>
+              <CardPanel
+                title="Solicitudes estado Pendiente"
+                href="/solicitudes-pendientes"
+              >
+                Se muestra el historial de todas las solicitudes con estados
+                pendientes.
+              </CardPanel>
+            </div>
+          </>
+        )}
+        {rol === "dge" && (
+          <>
+            <br />
+            <Divider>Dirección General Estudiantil</Divider>
 
             <div className="row">
               <CardPanel
