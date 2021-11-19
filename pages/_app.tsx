@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       return;
     }
     setShow(true);
-    setUser({ rol: data.rol, id: data.id });
+    setUser({ rol: data.rol, id: data.id , name: data.name, rut: data.rut});
     return data;
   };
 
@@ -96,7 +96,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <>
             {show && user && (
               <Layout>
-                <Component rol={user.rol} id={user.id} {...pageProps} />
+                <Component rol={user.rol} id={user.id} name={user.name} rut={user.rut} {...pageProps} />
               </Layout>
             )}
             {!show && <Loader backdrop content="Cargando..." vertical />}

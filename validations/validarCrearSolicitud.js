@@ -37,12 +37,8 @@ export default function validarLogin(datos) {
   if (!datos.periodo) {
     errors.periodo = "El periodo es requerido";
   }
-  if (!datos.asignacionFamiliar) {
-    errors.asignacionFamiliar = "La asignación familiar es requerida";
-  }
-  if (!datos.certificadoNacimiento) {
-    errors.certificadoNacimiento = "El certificado de nacimiento es requerido";
-  }
+ 
+
   if (!datos.comprobantePago) {
     errors.comprobantePago = "El comprobante de pago es requerido";
   }
@@ -50,5 +46,10 @@ export default function validarLogin(datos) {
   if (datos.datosAdicionales && datos.datosAdicionales.length > 1000) {
     errors.archivo = "No puede escribir más de 500 caracteres";
   }
+
+  if (!datos.documentos) {
+    errors.documentos = "El ingreso de documento es requerido";
+  }
+
   return errors;
 }

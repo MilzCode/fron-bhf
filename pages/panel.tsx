@@ -8,7 +8,7 @@ import HeaderPanel from "../components/panel/HeaderPanel";
 import CardPanel from "../components/panel/CardPanel";
 import { Divider } from "rsuite";
 
-const Home: NextPage = ({ rol }: any) => {
+const Home: NextPage = ({ rol,name }: any) => {
   const router = useRouter();
   return (
     <>

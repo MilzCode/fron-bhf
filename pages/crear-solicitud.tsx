@@ -25,7 +25,7 @@ const stateInicialCrearSolicitud = {
 };
 
 //Funcionario
-const CrearSolicitud = ({ id }: any) => {
+const CrearSolicitud = ({ id, name, rut}: any) => {
   const router = useRouter();
   const [enviado, setEnviado] = useState(false);
   const [clickEnviar, setClickEnviar] = useState(false);
@@ -40,8 +40,6 @@ const CrearSolicitud = ({ id }: any) => {
     const carrera_benef = valores.carrera;
     const type_benef = valores.tipoEstudiante;
     const documentacion: any = new Array();
-    documentacion.push(valores.asignacionFamiliar[0]);
-    documentacion.push(valores.certificadoNacimiento[0]);
     documentacion.push(valores.comprobantePago[0]);
     for (let index = 0; index < valores.documentos.length; index++) {
       documentacion.push(valores.documentos[index]);
@@ -99,6 +97,22 @@ const CrearSolicitud = ({ id }: any) => {
     <div className="crearSolicitud">
       <HeaderPanel nameUser="TEST" rolUser="TEST" title="Crear Solicitud" />
       <form className="crearSolicitud__formulario" onSubmit={handleSubmit}>
+
+        <div className="crearSolicitud__input LABELINPUT">
+            <label>Nombre y apellidos del funcionario </label>
+            <input
+              disabled
+              placeholder={name}
+            />
+        </div>
+        <div className="crearSolicitud__input LABELINPUT">
+            <label>Rut del funcionario </label>
+            <input
+              disabled
+              placeholder={rut}
+            />
+      
+        </div>
         <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="nombre">Nombre y apellidos del estudiante</label>
           <input
@@ -193,42 +207,6 @@ const CrearSolicitud = ({ id }: any) => {
         </div>
 
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="asignacionFamiliar">Asignación familiar</label>
-          <input
-            id="asignacionFamiliar"
-            name="asignacionFamiliar"
-            type="file"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            accept=" .jpg, .jpeg, .pdf, .docx"
-          />
-          {errores.asignacionFamiliar && (
-            <>
-              <p className="ERROR">{errores.asignacionFamiliar}</p>
-            </>
-          )}
-        </div>
-
-        <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="certificadoNacimiento">
-            Certificado de nacimiento
-          </label>
-          <input
-            id="certificadoNacimiento"
-            name="certificadoNacimiento"
-            type="file"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            accept=" .jpg, .jpeg, .pdf, .docx"
-          />
-          {errores.certificadoNacimiento && (
-            <>
-              <p className="ERROR">{errores.certificadoNacimiento}</p>
-            </>
-          )}
-        </div>
-
-        <div className="crearSolicitud__input LABELINPUT">
           <label htmlFor="comprobantePago">Comprobante de pago</label>
           <input
             id="comprobantePago"
@@ -245,7 +223,7 @@ const CrearSolicitud = ({ id }: any) => {
           )}
         </div>
         <div className="crearSolicitud__input LABELINPUT">
-          <label htmlFor="aux">Otros documentos (opcional)</label>
+          <label htmlFor="aux">Documentos: (Ej: Certificados) </label>
           <input
             id="documento"
             name="documentos"
