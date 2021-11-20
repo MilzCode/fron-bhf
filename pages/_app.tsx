@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   //rutas de acceso sin login
   const publicRoutes = ["/"];
+
   //ruta actual
   const path = router.asPath.split("?")[0];
   //parametro que indica true si la ruta actual es publica

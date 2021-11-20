@@ -1,7 +1,6 @@
 import { host } from "../host/host";
-import axios from "axios";
 
-const idSecret = "lISZgaYJUVJIHopPS38qusYAwhBYaWc9TReAuoGN";
+const idSecret = "kg0zpPPWxTSqDen26zyc55dzrzTFTOfpU8wm5qpn";
 const ingresoGoogle = async (access_token: string) => {
   const url = host + "/oauth/token";
   let error = "";
